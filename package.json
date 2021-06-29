@@ -6,7 +6,11 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "dev:ssr": "ng run totp-online:serve-ssr",
+    "serve:ssr": "node dist/totp-online/server/main.js",
+    "build:ssr": "ng build && ng run totp-online:server",
+    "prerender": "ng run totp-online:prerender"
   },
   "private": true,
   "dependencies": {
@@ -17,7 +21,10 @@
     "@angular/forms": "~12.0.2",
     "@angular/platform-browser": "~12.0.2",
     "@angular/platform-browser-dynamic": "~12.0.2",
+    "@angular/platform-server": "~12.0.2",
     "@angular/router": "~12.0.2",
+    "@nguniversal/express-engine": "^12.0.2",
+    "express": "^4.15.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"
@@ -26,6 +33,8 @@
     "@angular-devkit/build-angular": "~12.0.2",
     "@angular/cli": "~12.0.2",
     "@angular/compiler-cli": "~12.0.2",
+    "@nguniversal/builders": "^12.0.2",
+    "@types/express": "^4.17.0",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.7.0",
