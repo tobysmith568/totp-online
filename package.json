@@ -13,6 +13,7 @@
     "prerender": "ng run totp-online:prerender"
   },
   "private": true,
+  "prettier": "@tobysmith568/prettier-config",
   "dependencies": {
     "@angular/animations": "~12.0.2",
     "@angular/common": "~12.0.2",
@@ -34,6 +35,7 @@
     "@angular/cli": "~12.0.2",
     "@angular/compiler-cli": "~12.0.2",
     "@nguniversal/builders": "^12.0.2",
+    "@tobysmith568/prettier-config": "^1.0.0",
     "@types/express": "^4.17.0",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
