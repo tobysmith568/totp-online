@@ -18,6 +18,8 @@ export class ListComponent implements OnInit, OnDestroy {
   public totpContextMenu: MenuItem[] = [{ label: "Delete", command: () => this.delete() }];
   private contextMenuSubject?: Totp;
 
+  public showAddNew = false;
+
   constructor(
     public readonly ssrService: SsrService,
     private readonly totpStore: TotpStoreService,
@@ -30,6 +32,10 @@ export class ListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.totpsSubscription?.unsubscribe();
+  }
+
+  public openNewDialog() {
+    this.showAddNew = true;
   }
 
   public getTotpTitle(totp: Totp) {

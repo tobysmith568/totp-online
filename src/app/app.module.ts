@@ -3,6 +3,11 @@ import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NewComponent } from "./components/new/new.component";
+import { LOCAL_STORAGE } from "./services/totp-store/totp-store.service";
+import { SsrService } from "./services/ssr/ssr.service";
+import { ListComponent } from "./components/list/list.component";
+
 import { InputTextModule } from "primeng/inputtext";
 import { InputNumberModule } from "primeng/inputnumber";
 import { DropdownModule } from "primeng/dropdown";
@@ -10,10 +15,7 @@ import { ButtonModule } from "primeng/button";
 import { DataViewModule } from "primeng/dataview";
 import { ContextMenuModule } from "primeng/contextmenu";
 import { ConfirmDialogModule } from "primeng/confirmdialog";
-import { NewComponent } from "./components/new/new.component";
-import { LOCAL_STORAGE } from "./services/totp-store/totp-store.service";
-import { SsrService } from "./services/ssr/ssr.service";
-import { ListComponent } from "./components/list/list.component";
+import { DialogModule } from "primeng/dialog";
 import { ConfirmationService } from "primeng/api";
 
 @NgModule({
@@ -28,7 +30,8 @@ import { ConfirmationService } from "primeng/api";
     ButtonModule,
     DataViewModule,
     ContextMenuModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    DialogModule
   ],
   providers: [
     {
