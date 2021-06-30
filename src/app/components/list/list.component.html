@@ -1,0 +1,28 @@
+<p-dataView [value]="totps" layout="list">
+  <ng-template pTemplate="header">TOTP codes</ng-template>
+
+  <ng-template let-totp pTemplate="listItem">
+    <div class="totp">
+      <div class="details">
+        <p>{{ getTotpTitle(totp) }}</p>
+        <p class="secret">Secret: {{ totp.secret }}</p>
+      </div>
+      <div class="code">{{ totp.generate() }}</div>
+      <div class="context">
+        <button
+          pButton
+          type="button"
+          class="p-button-rounded p-button-outlined p-button-text context-button"
+          icon="pi pi-ellipsis-h"
+          iconPos="left"
+          #context
+          (click)="openContext(cm, $event, totp)"
+        ></button>
+      </div>
+      <p-contextMenu #cm [appendTo]="'body'" [model]="totpContextMenu"></p-contextMenu>
+    </div>
+  </ng-template>
+</p-dataView>
+<div *ngIf="!ssrService.isServerSide">
+  <p-confirmDialog header="Are you sure?" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+</div>

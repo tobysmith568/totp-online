@@ -1,0 +1,38 @@
+<div class="p-fluid p-formgrid p-grid">
+  <h2 class="p-col-12">About</h2>
+  <div class="p-field p-col-6">
+    <label for="account">Account</label>
+    <input type="text" id="account" pInputText [(ngModel)]="account" />
+  </div>
+  <div class="p-field p-col-6">
+    <label for="issuer">Issuer (Optional)</label>
+    <input type="text" id="issuer" pInputText [(ngModel)]="issuer" />
+  </div>
+  <h2 class="p-col-12">Configuration</h2>
+  <div class="p-field p-col-12">
+    <label for="secret">Secret</label>
+    <input type="text" id="secret" pInputText [(ngModel)]="secret" />
+  </div>
+  <div class="p-field p-col-4">
+    <label for="digits">Digits</label>
+    <p-inputNumber id="digits" [(ngModel)]="digits" [step]="1" [min]="6" [max]="10"></p-inputNumber>
+  </div>
+  <div class="p-field p-col-4">
+    <label for="period">Time Period</label>
+    <p-dropdown
+      id="period"
+      [options]="periods"
+      [(ngModel)]="period"
+      optionLabel="name"
+      optionValue="value"
+    ></p-dropdown>
+  </div>
+  <div class="p-field p-col-4">
+    <label for="algorithm">Algorithm</label>
+    <p-dropdown id="algorithm" [options]="algorithms" [(ngModel)]="algorithm"></p-dropdown>
+  </div>
+
+  <div class="p-field p-col-4">
+    <p-button label="Create!" (click)="add()"></p-button>
+  </div>
+</div>

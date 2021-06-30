@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  font-size: 1.05em;
+}
+
+app-list {
+  .p-dataview-header {
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+  }
+}

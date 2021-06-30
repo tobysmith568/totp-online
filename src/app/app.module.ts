@@ -1,12 +1,49 @@
 import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
-
 import { AppComponent } from "./app.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { InputTextModule } from "primeng/inputtext";
+import { InputNumberModule } from "primeng/inputnumber";
+import { DropdownModule } from "primeng/dropdown";
+import { ButtonModule } from "primeng/button";
+import { DataViewModule } from "primeng/dataview";
+import { ContextMenuModule } from "primeng/contextmenu";
+import { ConfirmDialogModule } from "primeng/confirmdialog";
+import { NewComponent } from "./components/new/new.component";
+import { LOCAL_STORAGE } from "./services/totp-store/totp-store.service";
+import { SsrService } from "./services/ssr/ssr.service";
+import { ListComponent } from "./components/list/list.component";
+import { ConfirmationService } from "primeng/api";
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule.withServerTransition({ appId: "serverApp" })],
-  providers: [],
+  declarations: [AppComponent, NewComponent, ListComponent],
+  imports: [
+    BrowserModule.withServerTransition({ appId: "serverApp" }),
+    BrowserAnimationsModule,
+    FormsModule,
+    InputTextModule,
+    InputNumberModule,
+    DropdownModule,
+    ButtonModule,
+    DataViewModule,
+    ContextMenuModule,
+    ConfirmDialogModule
+  ],
+  providers: [
+    {
+      provide: LOCAL_STORAGE,
+      useFactory: (ssrService: SsrService) => {
+        if (ssrService.isServerSide) {
+          return null;
+        }
+
+        return window.localStorage;
+      },
+      deps: [SsrService]
+    },
+    ConfirmationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
