@@ -15,14 +15,7 @@ export class ListComponent implements OnInit, OnDestroy {
   public totps: Totp[] = [];
   private totpsSubscription?: Subscription;
 
-  public totpContextMenu: MenuItem[] = [{ label: "Delete", command: () => this.delete() }];
-  private contextMenuSubject?: Totp;
-
-  constructor(
-    public readonly ssrService: SsrService,
-    private readonly totpStore: TotpStoreService,
-    @Optional() private readonly confirmationService: ConfirmationService
-  ) {}
+  constructor(public readonly ssrService: SsrService, private readonly totpStore: TotpStoreService) {}
 
   ngOnInit(): void {
     this.totpsSubscription = this.totpStore.getAll$().subscribe(totps => (this.totps = totps));
@@ -30,37 +23,5 @@ export class ListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.totpsSubscription?.unsubscribe();
-  }
-
-  public getTotpTitle(totp: Totp) {
-    if (!!totp.issuer) {
-      return `${totp.issuer} (${totp.account})`;
-    }
-
-    return totp.account;
-  }
-
-  public openContext(thing: ContextMenu, event: MouseEvent, totp: Totp) {
-    event.preventDefault();
-    event.stopPropagation();
-    this.contextMenuSubject = totp;
-    thing.show(event);
-  }
-
-  public delete() {
-    if (!this.contextMenuSubject) {
-      return;
-    }
-
-    this.confirmationService.confirm({
-      message: `Are you sure that you want to delete ${this.getTotpTitle(this.contextMenuSubject)}?`,
-      accept: () => {
-        if (!this.contextMenuSubject) {
-          return;
-        }
-
-        this.totpStore.delete(this.contextMenuSubject.id);
-      }
-    });
   }
 }

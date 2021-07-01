@@ -16,8 +16,7 @@ export class TotpStoreService {
 
   constructor(
     @Inject(LOCAL_STORAGE) private readonly localStorage: typeof window.localStorage | null,
-    private readonly guidService: GuidService,
-    private readonly clockService: ClockService
+    private readonly guidService: GuidService
   ) {}
 
   public getAll$(): Observable<Totp[]> {
@@ -36,7 +35,7 @@ export class TotpStoreService {
     }
 
     const interfaceValues: ITotp[] = JSON.parse(stringValue);
-    return interfaceValues.map(iv => new Totp(iv, this.clockService));
+    return interfaceValues.map(iv => new Totp(iv));
   }
 
   public create(totp: Omit<ITotp, "id">) {
@@ -45,13 +44,10 @@ export class TotpStoreService {
     const currentTotps = this.getAll();
 
     currentTotps.push(
-      new Totp(
-        {
-          id,
-          ...totp
-        },
-        this.clockService
-      )
+      new Totp({
+        id,
+        ...totp
+      })
     );
 
     this.setAll(currentTotps);

@@ -18,9 +18,11 @@ import { ContextMenuModule } from "primeng/contextmenu";
 import { ConfirmDialogModule } from "primeng/confirmdialog";
 import { DialogModule } from "primeng/dialog";
 import { ConfirmationService } from "primeng/api";
+import { ChartModule } from "primeng/chart";
+import { RowComponent } from './components/list/row/row.component';
 
 @NgModule({
-  declarations: [AppComponent, NewComponent, ListComponent],
+  declarations: [AppComponent, NewComponent, ListComponent, RowComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
     AppRoutingModule,
@@ -33,7 +35,8 @@ import { ConfirmationService } from "primeng/api";
     DataViewModule,
     ContextMenuModule,
     ConfirmDialogModule,
-    DialogModule
+    DialogModule,
+    ChartModule
   ],
   providers: [
     {

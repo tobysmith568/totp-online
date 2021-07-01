@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
-import { Subject } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 import { SsrService } from "../ssr/ssr.service";
 
 @Injectable({
   providedIn: "root"
 })
 export class ClockService {
-  private secondSubject = new Subject<void>();
+  private secondSubject = new BehaviorSubject<number>(this.getMinuteOfHour());
 
   constructor(ssrService: SsrService) {
     if (ssrService.isServerSide) {
@@ -14,11 +14,16 @@ export class ClockService {
     }
 
     setTimeout(() => {
-      setInterval(() => this.secondSubject.next(), 1000);
+      setInterval(() => this.secondSubject.next(this.getMinuteOfHour()), 1000);
     }, 1000 - new Date().getMilliseconds());
   }
 
-  public everySecond$() {
+  public secondOfTheHour$() {
     return this.secondSubject.asObservable();
+  }
+
+  private getMinuteOfHour() {
+    const date = new Date();
+    return date.getMinutes() * 60 + date.getSeconds();
   }
 }
