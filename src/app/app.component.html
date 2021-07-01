@@ -1,7 +1,21 @@
 <div class="background">
   <div class="content">
     <div class="panel">
-      <app-list></app-list>
+      <div class="header">
+        <h1 class="p-component title">TOTP codes</h1>
+        <button
+          *ngIf="!ssrService.isServerSide"
+          pButton
+          type="button"
+          class="p-button-rounded p-button-outlined p-button-text context-button"
+          icon="pi {{ headerButtonIcon }}"
+          iconPos="left"
+          #context
+          [label]="headerButtonText"
+          (click)="headerButton()"
+        ></button>
+      </div>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

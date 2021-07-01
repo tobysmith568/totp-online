@@ -7,6 +7,7 @@ import { NewComponent } from "./components/new/new.component";
 import { LOCAL_STORAGE } from "./services/totp-store/totp-store.service";
 import { SsrService } from "./services/ssr/ssr.service";
 import { ListComponent } from "./components/list/list.component";
+import { AppRoutingModule } from "./app-routing.module";
 
 import { InputTextModule } from "primeng/inputtext";
 import { InputNumberModule } from "primeng/inputnumber";
@@ -22,6 +23,7 @@ import { ConfirmationService } from "primeng/api";
   declarations: [AppComponent, NewComponent, ListComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
+    AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
     InputTextModule,

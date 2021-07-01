@@ -1,13 +1,14 @@
-import { Component } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core";
 import { TotpStoreService } from "src/app/services/totp-store/totp-store.service";
 import { Algorithm } from "src/app/services/totp-store/totp";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-new",
   templateUrl: "./new.component.html",
   styleUrls: ["./new.component.scss"]
 })
-export class NewComponent {
+export class NewComponent implements AfterViewInit {
   public periods = [
     { name: "30 seconds", value: 30 },
     { name: "60 seconds", value: 60 }
@@ -24,7 +25,13 @@ export class NewComponent {
 
   public result = "";
 
-  constructor(private readonly totpStorageService: TotpStoreService) {}
+  @ViewChild("accountInput") accountInput?: ElementRef<HTMLInputElement>;
+
+  constructor(private readonly totpStorageService: TotpStoreService, private readonly router: Router) {}
+
+  ngAfterViewInit(): void {
+    this.accountInput?.nativeElement.focus();
+  }
 
   public add() {
     this.totpStorageService.create({
@@ -35,5 +42,7 @@ export class NewComponent {
       digits: this.digits,
       algorithm: this.algorithm
     });
+
+    this.router.navigate([""]);
   }
 }

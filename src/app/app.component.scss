@@ -15,7 +15,25 @@
 }
 
 .panel {
-  max-width: 45vw;
+  width: 45vw;
   background-color: white;
   border-radius: 1em;
+}
+
+.header {
+  background: #f8f9fa;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+  border-bottom: 1px solid #e9ecef;
+  padding: 1em;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .title {
+    font-weight: 600;
+    color: #495057;
+  }
 }
