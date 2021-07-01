@@ -1,5 +1,6 @@
 import { Inject, Injectable, InjectionToken } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
+import { ClockService } from "../clock/clock.service";
 import { GuidService } from "../guid/guid.service";
 import { ITotp, Totp } from "./totp";
 
@@ -15,7 +16,8 @@ export class TotpStoreService {
 
   constructor(
     @Inject(LOCAL_STORAGE) private readonly localStorage: typeof window.localStorage | null,
-    private readonly guidService: GuidService
+    private readonly guidService: GuidService,
+    private readonly clockService: ClockService
   ) {}
 
   public getAll$(): Observable<Totp[]> {
@@ -34,7 +36,7 @@ export class TotpStoreService {
     }
 
     const interfaceValues: ITotp[] = JSON.parse(stringValue);
-    return interfaceValues.map(iv => new Totp(iv));
+    return interfaceValues.map(iv => new Totp(iv, this.clockService));
   }
 
   public create(totp: Omit<ITotp, "id">) {
@@ -43,10 +45,13 @@ export class TotpStoreService {
     const currentTotps = this.getAll();
 
     currentTotps.push(
-      new Totp({
-        id,
-        ...totp
-      })
+      new Totp(
+        {
+          id,
+          ...totp
+        },
+        this.clockService
+      )
     );
 
     this.setAll(currentTotps);

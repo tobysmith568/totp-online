@@ -1,5 +1,7 @@
 import JsSHA from "jssha";
+import { ClockService } from "../clock/clock.service";
 
+export type Durations = "15 Seconds" | "30 Seconds" | "1 Minute" | "2 Minutes" | "5 Minutes" | "10 Minutes";
 export type Algorithm = "SHA-1" | "SHA-224" | "SHA-256" | "SHA-384" | "SHA-512";
 
 export interface ITotp {
@@ -23,17 +25,25 @@ export class Totp implements ITotp {
   digits: number;
   algorithm: Algorithm;
 
-  constructor(fromJson: ITotp) {
+  #code: string;
+  public get code() {
+    return this.#code;
+  }
+
+  constructor(fromJson: ITotp, clockService: ClockService) {
     this.id = fromJson.id;
     this.account = fromJson.account;
     this.issuer = fromJson.issuer;
-    this.secret = fromJson.secret;
-    this.period = fromJson.period;
-    this.digits = fromJson.digits;
-    this.algorithm = fromJson.algorithm;
+    this.secret = fromJson.secret ?? "";
+    this.period = fromJson.period ?? 30;
+    this.digits = fromJson.digits ?? 6;
+    this.algorithm = fromJson.algorithm ?? "SHA-1";
+
+    clockService.everySecond$().subscribe(() => (this.#code = this.generate()));
+    this.#code = this.generate();
   }
 
-  public generate(): string {
+  private generate(): string {
     const base32Secret = base32tohex(this.secret);
     const epoch = Math.round(Date.now() / 1000.0);
     const time = leftpad(dec2hex(Math.floor(epoch / this.period)), 16, "0");

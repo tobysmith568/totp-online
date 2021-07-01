@@ -10,8 +10,12 @@ import { Router } from "@angular/router";
 })
 export class NewComponent implements AfterViewInit {
   public periods = [
+    { name: "15 seconds", value: 15 },
     { name: "30 seconds", value: 30 },
-    { name: "60 seconds", value: 60 }
+    { name: "1 minute", value: 60 },
+    { name: "2 minutes", value: 60 * 2 },
+    { name: "5 minutes", value: 60 * 5 },
+    { name: "10 minutes", value: 60 * 10 }
   ];
   public algorithms = ["SHA-1", "SHA-224", "SHA-256", "SHA-384", "SHA-512"] as Algorithm[];
 
