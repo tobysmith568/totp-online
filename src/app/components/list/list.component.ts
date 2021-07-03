@@ -1,10 +1,9 @@
-import { Component, OnDestroy, OnInit, Optional } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { Totp } from "src/app/services/totp-store/totp";
 import { TotpStoreService } from "src/app/services/totp-store/totp-store.service";
-import { ConfirmationService, MenuItem } from "primeng/api";
-import { ContextMenu } from "primeng/contextmenu";
 import { SsrService } from "src/app/services/ssr/ssr.service";
+import { MetaService } from "src/app/services/meta/meta.service";
 
 @Component({
   selector: "app-list",
@@ -15,10 +14,18 @@ export class ListComponent implements OnInit, OnDestroy {
   public totps: Totp[] = [];
   private totpsSubscription?: Subscription;
 
-  constructor(public readonly ssrService: SsrService, private readonly totpStore: TotpStoreService) {}
+  constructor(
+    public readonly ssrService: SsrService,
+    private readonly totpStore: TotpStoreService,
+    private readonly metaService: MetaService
+  ) {}
 
   ngOnInit(): void {
     this.totpsSubscription = this.totpStore.getAll$().subscribe(totps => (this.totps = totps));
+
+    this.metaService
+      .title()
+      .description("Generate TOTP secrets and codes to use while making and testing software secured by TOTP.");
   }
 
   ngOnDestroy(): void {

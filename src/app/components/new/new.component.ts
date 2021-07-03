@@ -1,14 +1,15 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { TotpStoreService } from "src/app/services/totp-store/totp-store.service";
 import { Algorithm } from "src/app/services/totp-store/totp";
 import { Router } from "@angular/router";
+import { MetaService } from "src/app/services/meta/meta.service";
 
 @Component({
   selector: "app-new",
   templateUrl: "./new.component.html",
   styleUrls: ["./new.component.scss"]
 })
-export class NewComponent implements AfterViewInit {
+export class NewComponent implements OnInit, AfterViewInit {
   public periods = [
     { name: "15 seconds", value: 15 },
     { name: "30 seconds", value: 30 },
@@ -31,7 +32,15 @@ export class NewComponent implements AfterViewInit {
 
   @ViewChild("accountInput") accountInput?: ElementRef<HTMLInputElement>;
 
-  constructor(private readonly totpStorageService: TotpStoreService, private readonly router: Router) {}
+  constructor(
+    private readonly totpStorageService: TotpStoreService,
+    private readonly router: Router,
+    private readonly metaService: MetaService
+  ) {}
+
+  ngOnInit(): void {
+    this.metaService.title("Add a new TOTP").description("Configure a new TOTP secret");
+  }
 
   ngAfterViewInit(): void {
     this.accountInput?.nativeElement.focus();

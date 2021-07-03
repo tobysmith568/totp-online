@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
+import { MetaService } from "./services/meta/meta.service";
 import { SsrService } from "./services/ssr/ssr.service";
 
 @Component({
@@ -8,6 +9,7 @@ import { SsrService } from "./services/ssr/ssr.service";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit {
+  public title = "";
   private isOnHomepage = true;
 
   public get headerButtonIcon() {
@@ -17,7 +19,12 @@ export class AppComponent implements OnInit {
     return this.isOnHomepage ? "" : "Back";
   }
 
-  constructor(public readonly ssrService: SsrService, private readonly router: Router) {}
+  constructor(
+    public readonly ssrService: SsrService,
+    private readonly router: Router,
+    private readonly metaService: MetaService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     const update = (url: string) => {
@@ -34,6 +41,11 @@ export class AppComponent implements OnInit {
       }
     });
     update(this.router.url);
+
+    this.metaService.title$().subscribe(title => {
+      this.title = title;
+      this.cdr.detectChanges();
+    });
   }
 
   public async headerButton(): Promise<void> {
