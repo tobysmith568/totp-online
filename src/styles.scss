@@ -6,17 +6,3 @@ body {
   height: 100%;
   font-size: 1.05em;
 }
-
-app-list {
-  .p-dataview-header {
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    .title {
-      flex-grow: 1;
-    }
-  }
-}

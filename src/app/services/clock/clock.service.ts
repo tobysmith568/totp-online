@@ -6,7 +6,7 @@ import { SsrService } from "../ssr/ssr.service";
   providedIn: "root"
 })
 export class ClockService {
-  private secondSubject = new BehaviorSubject<number>(this.getMinuteOfHour());
+  private secondSubject = new BehaviorSubject<number>(this.secondOfTheHour());
 
   constructor(ssrService: SsrService) {
     if (ssrService.isServerSide) {
@@ -14,7 +14,7 @@ export class ClockService {
     }
 
     setTimeout(() => {
-      setInterval(() => this.secondSubject.next(this.getMinuteOfHour()), 1000);
+      setInterval(() => this.secondSubject.next(this.secondOfTheHour()), 1000);
     }, 1000 - new Date().getMilliseconds());
   }
 
@@ -22,7 +22,7 @@ export class ClockService {
     return this.secondSubject.asObservable();
   }
 
-  private getMinuteOfHour() {
+  public secondOfTheHour() {
     const date = new Date();
     return date.getMinutes() * 60 + date.getSeconds();
   }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Optional } from "@angular/core";
+import { AfterViewInit, Component, Input, OnInit, Optional } from "@angular/core";
 import { ConfirmationService, MenuItem } from "primeng/api";
 import { ContextMenu } from "primeng/contextmenu";
 import { Totp } from "src/app/services/totp-store/totp";
@@ -11,25 +11,16 @@ import { ClockService } from "src/app/services/clock/clock.service";
   templateUrl: "./row.component.html",
   styleUrls: ["./row.component.scss"]
 })
-export class RowComponent implements OnInit {
+export class RowComponent implements OnInit, AfterViewInit {
   public totpContextMenu: MenuItem[] = [{ label: "Delete", command: () => this.delete() }];
 
   @Input()
   public totp?: Totp;
 
-  public code = this.generate();
-
-  public chartData: any;
-  public chartOptions = {
-    animation: {
-      duration: 0
-    },
-    legend: {
-      display: false
-    },
-    tooltips: { enabled: false },
-    hover: { mode: null }
-  };
+  public code: string = "";
+  public percent = 0;
+  public animationDuration = 0;
+  public startFromZero = false;
 
   public get title() {
     if (!this.totp) {
@@ -50,33 +41,34 @@ export class RowComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.chartData = {
-      datasets: [
-        {
-          data: [0, 100],
-          backgroundColor: ["#00a2ff", "white"]
-        }
-      ]
-    };
+    const period = this.totp?.period ?? 30;
 
     this.clockService.secondOfTheHour$().subscribe(secondOfTheHour => {
-      if (!this.totp) {
-        return;
+      this.generate();
+
+      const position = secondOfTheHour % period;
+
+      if (position === 0) {
+        this.animationDuration = period * 1000;
+        this.startFromZero = true;
+
+        this.percent = 0;
+        setTimeout(() => (this.percent = 100));
       }
+    });
 
-      this.code = this.generate();
+    this.generate();
 
-      const position = secondOfTheHour % this.totp.period;
-      this.chartData = {
-        datasets: [
-          {
-            data: [position, this.totp.period - position],
-            backgroundColor: ["#00a2ff", "white"]
-          }
-        ]
-      };
+    const secondOfTheHour = this.clockService.secondOfTheHour();
+    const position = secondOfTheHour % period;
+    this.percent = (100 / period) * position;
+    setTimeout(() => {
+      this.animationDuration = (period - position) * 1000;
+      this.percent = 100;
     });
   }
+
+  ngAfterViewInit(): void {}
 
   public openContext(thing: ContextMenu, event: MouseEvent) {
     event.preventDefault();
@@ -101,9 +93,9 @@ export class RowComponent implements OnInit {
     });
   }
 
-  private generate(): string {
+  private generate() {
     if (!this.totp) {
-      return "";
+      return;
     }
 
     const base32Secret = base32tohex(this.totp.secret);
@@ -117,7 +109,7 @@ export class RowComponent implements OnInit {
 
     let otp = (hex2dec(hmac.substr(offset * 2, 8)) & hex2dec("7fffffff")) + "";
     otp = otp.substr(otp.length - this.totp.digits, this.totp.digits);
-    return otp;
+    this.code = otp;
   }
 }
 
@@ -130,20 +122,20 @@ function dec2hex(s: number) {
 }
 
 function base32tohex(base32: string) {
-  let base32chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567",
-    bits = "",
-    hex = "";
+  const base32chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+  let bits = "";
+  let hex = "";
 
   base32 = base32.replace(/=+$/, "");
 
   for (let i = 0; i < base32.length; i++) {
-    let val = base32chars.indexOf(base32.charAt(i).toUpperCase());
+    const val = base32chars.indexOf(base32.charAt(i).toUpperCase());
     if (val === -1) throw new Error("Invalid base32 character in key");
     bits += leftpad(val.toString(2), 5, "0");
   }
 
   for (let i = 0; i + 8 <= bits.length; i += 8) {
-    let chunk = bits.substr(i, 8);
+    const chunk = bits.substr(i, 8);
     hex = hex + leftpad(parseInt(chunk, 2).toString(16), 2, "0");
   }
   return hex;

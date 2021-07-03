@@ -1,13 +1,10 @@
-<div class="totp">
+<div class="totp p-component">
   <div class="donut">
-    <p-chart
-      type="doughnut"
-      width="35"
-      height="35"
-      [data]="chartData"
-      [options]="chartOptions"
-      onDataSelect="() => undefined"
-    ></p-chart>
+    <circle-progress
+      [percent]="percent"
+      [animationDuration]="animationDuration"
+      [startFromZero]="startFromZero"
+    ></circle-progress>
   </div>
   <div class="details">
     <p>{{ title }}</p>

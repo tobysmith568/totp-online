@@ -18,8 +18,11 @@ import { ContextMenuModule } from "primeng/contextmenu";
 import { ConfirmDialogModule } from "primeng/confirmdialog";
 import { DialogModule } from "primeng/dialog";
 import { ConfirmationService } from "primeng/api";
-import { ChartModule } from "primeng/chart";
-import { RowComponent } from './components/list/row/row.component';
+import { RowComponent } from "./components/list/row/row.component";
+import { NgCircleProgressModule } from "ng-circle-progress";
+import { processConfig } from "src/environments/progress.config";
+import { NgScrollbarModule } from "ngx-scrollbar";
+import { scrollConfig } from "src/environments/scroll.config";
 
 @NgModule({
   declarations: [AppComponent, NewComponent, ListComponent, RowComponent],
@@ -36,7 +39,8 @@ import { RowComponent } from './components/list/row/row.component';
     ContextMenuModule,
     ConfirmDialogModule,
     DialogModule,
-    ChartModule
+    NgCircleProgressModule.forRoot(processConfig),
+    NgScrollbarModule.withConfig(scrollConfig)
   ],
   providers: [
     {
