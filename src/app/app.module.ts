@@ -8,7 +8,6 @@ import { LOCAL_STORAGE } from "./services/totp-store/totp-store.service";
 import { SsrService } from "./services/ssr/ssr.service";
 import { ListComponent } from "./components/list/list.component";
 import { AppRoutingModule } from "./app-routing.module";
-
 import { InputTextModule } from "primeng/inputtext";
 import { InputNumberModule } from "primeng/inputnumber";
 import { DropdownModule } from "primeng/dropdown";
@@ -18,6 +17,7 @@ import { ContextMenuModule } from "primeng/contextmenu";
 import { ConfirmDialogModule } from "primeng/confirmdialog";
 import { DialogModule } from "primeng/dialog";
 import { ConfirmationService } from "primeng/api";
+import { KeyFilterModule } from "primeng/keyfilter";
 import { RowComponent } from "./components/list/row/row.component";
 import { NgCircleProgressModule } from "ng-circle-progress";
 import { processConfig } from "src/environments/progress.config";
@@ -39,6 +39,7 @@ import { scrollConfig } from "src/environments/scroll.config";
     ContextMenuModule,
     ConfirmDialogModule,
     DialogModule,
+    KeyFilterModule,
     NgCircleProgressModule.forRoot(processConfig),
     NgScrollbarModule.withConfig(scrollConfig)
   ],

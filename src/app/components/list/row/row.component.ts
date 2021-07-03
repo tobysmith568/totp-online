@@ -5,6 +5,9 @@ import { Totp } from "src/app/services/totp-store/totp";
 import { TotpStoreService } from "src/app/services/totp-store/totp-store.service";
 import JsSHA from "jssha";
 import { ClockService } from "src/app/services/clock/clock.service";
+import { StringService } from "src/app/services/string/string.service";
+import { Base32Service } from "src/app/services/base32/base32.service";
+import { HexidecimalService } from "src/app/services/hexidecimal/hexidecimal.service";
 
 @Component({
   selector: "app-row",
@@ -37,6 +40,9 @@ export class RowComponent implements OnInit, AfterViewInit {
   constructor(
     private readonly totpStore: TotpStoreService,
     private readonly clockService: ClockService,
+    private readonly stringService: StringService,
+    private readonly base32Service: Base32Service,
+    private readonly hexidecimalService: HexidecimalService,
     @Optional() private readonly confirmationService: ConfirmationService
   ) {}
 
@@ -98,52 +104,22 @@ export class RowComponent implements OnInit, AfterViewInit {
       return;
     }
 
-    const base32Secret = base32tohex(this.totp.secret);
+    const base32Secret = this.base32Service.base32tohex(this.totp.secret);
     const epoch = Math.round(Date.now() / 1000.0);
-    const time = leftpad(dec2hex(Math.floor(epoch / this.totp.period)), 16, "0");
+    const time = this.stringService.leftpad(
+      this.hexidecimalService.dec2hex(Math.floor(epoch / this.totp.period)),
+      16,
+      "0"
+    );
 
     const shaObj = new JsSHA(this.totp.algorithm, "HEX", { hmacKey: { value: base32Secret, format: "HEX" } });
     shaObj.update(time);
     const hmac = shaObj.getHMAC("HEX");
-    const offset = hex2dec(hmac.substring(hmac.length - 1));
+    const offset = this.hexidecimalService.hex2dec(hmac.substring(hmac.length - 1));
 
-    let otp = (hex2dec(hmac.substr(offset * 2, 8)) & hex2dec("7fffffff")) + "";
+    let otp =
+      (this.hexidecimalService.hex2dec(hmac.substr(offset * 2, 8)) & this.hexidecimalService.hex2dec("7fffffff")) + "";
     otp = otp.substr(otp.length - this.totp.digits, this.totp.digits);
     this.code = otp;
   }
-}
-
-function hex2dec(s: string) {
-  return parseInt(s, 16);
-}
-
-function dec2hex(s: number) {
-  return (s < 15.5 ? "0" : "") + Math.round(s).toString(16);
-}
-
-function base32tohex(base32: string) {
-  const base32chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
-  let bits = "";
-  let hex = "";
-
-  base32 = base32.replace(/=+$/, "");
-
-  for (let i = 0; i < base32.length; i++) {
-    const val = base32chars.indexOf(base32.charAt(i).toUpperCase());
-    if (val === -1) throw new Error("Invalid base32 character in key");
-    bits += leftpad(val.toString(2), 5, "0");
-  }
-
-  for (let i = 0; i + 8 <= bits.length; i += 8) {
-    const chunk = bits.substr(i, 8);
-    hex = hex + leftpad(parseInt(chunk, 2).toString(16), 2, "0");
-  }
-  return hex;
-}
-
-function leftpad(str: string, len: number, pad = "0") {
-  if (len + 1 >= str.length) {
-    str = Array(len + 1 - str.length).join(pad) + str;
-  }
-  return str;
 }

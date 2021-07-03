@@ -1,6 +1,5 @@
 import { Inject, Injectable, InjectionToken } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
-import { ClockService } from "../clock/clock.service";
 import { GuidService } from "../guid/guid.service";
 import { ITotp, Totp } from "./totp";
 

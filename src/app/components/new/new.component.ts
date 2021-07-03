@@ -3,6 +3,7 @@ import { TotpStoreService } from "src/app/services/totp-store/totp-store.service
 import { Algorithm } from "src/app/services/totp-store/totp";
 import { Router } from "@angular/router";
 import { MetaService } from "src/app/services/meta/meta.service";
+import { base32chars } from "src/app/services/base32/base32.service";
 
 @Component({
   selector: "app-new",
@@ -10,6 +11,8 @@ import { MetaService } from "src/app/services/meta/meta.service";
   styleUrls: ["./new.component.scss"]
 })
 export class NewComponent implements OnInit, AfterViewInit {
+  public base32Regex = new RegExp(`[${base32chars}]+`, "i");
+
   public periods = [
     { name: "15 seconds", value: 15 },
     { name: "30 seconds", value: 30 },
@@ -25,10 +28,24 @@ export class NewComponent implements OnInit, AfterViewInit {
 
   public secret: string = "";
   public period: number = 30;
-  public digits: number = 6;
+  #digits: number = 6;
   public algorithm: Algorithm = "SHA-1";
 
-  public result = "";
+  public get digits() {
+    console.log("GET", this.#digits);
+    return this.#digits;
+  }
+
+  public set digits(value: number) {
+    console.log("SET", this.#digits);
+    this.#digits = value;
+  }
+
+  public get formIsValid() {
+    return (
+      this.account.length > 0 && this.secret.length > 0 && !!this.#digits && this.#digits > 0 && this.#digits <= 12
+    );
+  }
 
   @ViewChild("accountInput") accountInput?: ElementRef<HTMLInputElement>;
 

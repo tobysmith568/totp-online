@@ -11,11 +11,18 @@
   <h3 class="p-col-12">Configuration</h3>
   <div class="p-field p-col-12">
     <label for="secret">Secret</label>
-    <input type="text" id="secret" pInputText [(ngModel)]="secret" />
+    <input type="text" id="secret" class="ng-dirty" pInputText [(ngModel)]="secret" [pKeyFilter]="base32Regex" />
   </div>
   <div class="p-field p-col-4">
     <label for="digits">Digits</label>
-    <p-inputNumber id="digits" [(ngModel)]="digits" [step]="1" [min]="6" [max]="10"></p-inputNumber>
+    <p-inputNumber
+      id="digits"
+      [(ngModel)]="digits"
+      [step]="1"
+      [min]="6"
+      [max]="10"
+      (onInput)="digits = $event.value"
+    ></p-inputNumber>
   </div>
   <div class="p-field p-col-4">
     <label for="period">Time Period</label>
@@ -34,6 +41,6 @@
   </div>
 
   <div class="p-field p-col-4">
-    <p-button label="Create!" (click)="add()"></p-button>
+    <p-button label="Create!" [disabled]="!formIsValid" (click)="add()"></p-button>
   </div>
 </div>
