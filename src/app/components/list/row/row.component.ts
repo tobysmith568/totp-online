@@ -88,7 +88,9 @@ export class RowComponent implements OnInit, AfterViewInit {
     }
 
     this.confirmationService.confirm({
+      header: "Are you sure?",
       message: `Are you sure that you want to delete ${this.title}?`,
+      icon: "pi pi-exclamation-triangle",
       accept: () => {
         if (!this.totp) {
           return;

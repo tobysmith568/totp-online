@@ -21,3 +21,7 @@
     </div>
   </div>
 </div>
+
+<div *ngIf="!ssrService.isServerSide">
+  <p-confirmDialog></p-confirmDialog>
+</div>

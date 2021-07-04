@@ -1,7 +1,3 @@
 <div *ngFor="let totp of totps">
   <app-row [totp]="totp"></app-row>
 </div>
-
-<div *ngIf="!ssrService.isServerSide">
-  <p-confirmDialog header="Are you sure?" icon="pi pi-exclamation-triangle"></p-confirmDialog>
-</div>
