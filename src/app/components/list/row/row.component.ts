@@ -15,7 +15,10 @@ import { HexidecimalService } from "src/app/services/hexidecimal/hexidecimal.ser
   styleUrls: ["./row.component.scss"]
 })
 export class RowComponent implements OnInit, AfterViewInit {
-  public totpContextMenu: MenuItem[] = [{ label: "Delete", command: () => this.delete() }];
+  public totpContextMenu: MenuItem[] = [
+    { label: "Copy as JSON", command: () => this.copy() },
+    { label: "Delete", command: () => this.delete() }
+  ];
 
   @Input()
   public totp?: Totp;
@@ -80,6 +83,18 @@ export class RowComponent implements OnInit, AfterViewInit {
     event.preventDefault();
     event.stopPropagation();
     thing.show(event);
+  }
+
+  public copy() {
+    if (!this.totp) {
+      return;
+    }
+
+    const objectForJson = { ...this.totp } as any;
+    delete objectForJson.id;
+
+    const json = JSON.stringify(objectForJson);
+    navigator.clipboard.writeText(json);
   }
 
   public delete() {
