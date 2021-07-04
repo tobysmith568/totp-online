@@ -1,7 +1,7 @@
 import { Inject, Injectable, InjectionToken } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { GuidService } from "../guid/guid.service";
-import { ITotp, Totp } from "./totp";
+import { Totp } from "./totp";
 
 export const LOCAL_STORAGE = new InjectionToken<typeof window.localStorage | null>("Local Storage");
 
@@ -33,21 +33,19 @@ export class TotpStoreService {
       return [];
     }
 
-    const interfaceValues: ITotp[] = JSON.parse(stringValue);
-    return interfaceValues.map(iv => new Totp(iv));
+    const interfaceValues: Totp[] = JSON.parse(stringValue);
+    return interfaceValues;
   }
 
-  public create(totp: Omit<ITotp, "id">) {
+  public create(totp: Omit<Totp, "id">) {
     const id = this.guidService.v4();
 
     const currentTotps = this.getAll();
 
-    currentTotps.push(
-      new Totp({
-        id,
-        ...totp
-      })
-    );
+    currentTotps.push({
+      id,
+      ...totp
+    });
 
     this.setAll(currentTotps);
   }
