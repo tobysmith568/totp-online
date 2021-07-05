@@ -29,7 +29,19 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              {
+                "glob": "**",
+                "input": "src/app/assets",
+                "output": "./assets",
+                "ignore": ["__root__/**"]
+              },
+              {
+                "glob": "**",
+                "input": "src/app/assets/__root__",
+                "output": "./"
+              }
+            ],
             "styles": [
               "src/styles.scss",
               "./node_modules/primeicons/primeicons.css",
