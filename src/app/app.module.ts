@@ -18,7 +18,7 @@ import { ConfirmDialogModule } from "primeng/confirmdialog";
 import { DialogModule } from "primeng/dialog";
 import { ConfirmationService } from "primeng/api";
 import { KeyFilterModule } from "primeng/keyfilter";
-import { RowComponent } from "./components/list/row/row.component";
+import { TotpRowComponent } from "./components/totp-row/totp-row.component";
 import { NgCircleProgressModule } from "ng-circle-progress";
 import { processConfig } from "src/environments/progress.config";
 import { NgScrollbarModule } from "ngx-scrollbar";
@@ -26,7 +26,7 @@ import { scrollConfig } from "src/environments/scroll.config";
 import { CodesComponent } from "./components/codes/codes.component";
 
 @NgModule({
-  declarations: [AppComponent, NewComponent, ListComponent, RowComponent, CodesComponent],
+  declarations: [AppComponent, NewComponent, ListComponent, TotpRowComponent, CodesComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
     AppRoutingModule,

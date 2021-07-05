@@ -8,11 +8,11 @@ import { Router } from "@angular/router";
 import { TimeoutService } from "src/app/services/timeout/timeout.service";
 
 @Component({
-  selector: "app-row",
-  templateUrl: "./row.component.html",
-  styleUrls: ["./row.component.scss"]
+  selector: "app-totp-row",
+  templateUrl: "./totp-row.component.html",
+  styleUrls: ["./totp-row.component.scss"]
 })
-export class RowComponent implements OnInit {
+export class TotpRowComponent implements OnInit {
   public totpContextMenu: MenuItem[] = [
     { label: "View code range", command: () => this.codeRange() },
     { label: "Copy as JSON", command: () => this.copy() },
