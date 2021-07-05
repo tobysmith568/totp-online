@@ -12,7 +12,7 @@ export const LOCAL_STORAGE = new InjectionToken<typeof window.localStorage | nul
 @Injectable({
   providedIn: "root"
 })
-export class TotpStoreService {
+export class TotpService {
   private storageKey = "TOTP-CONFIGS";
 
   public allSubject = new BehaviorSubject<Totp[]>(this.getAll());

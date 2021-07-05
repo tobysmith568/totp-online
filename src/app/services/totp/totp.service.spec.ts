@@ -1,13 +1,13 @@
 import { TestBed } from "@angular/core/testing";
 
-import { TotpStoreService } from "./totp-store.service";
+import { TotpService } from "./totp.service";
 
-describe("TotpStoreService", () => {
-  let service: TotpStoreService;
+describe("TotpService", () => {
+  let service: TotpService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(TotpStoreService);
+    service = TestBed.inject(TotpService);
   });
 
   it("should be created", () => {

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
-import { Totp } from "src/app/services/totp-store/totp";
-import { TotpStoreService } from "src/app/services/totp-store/totp-store.service";
+import { Totp } from "src/app/services/totp/totp";
+import { TotpService } from "src/app/services/totp/totp.service";
 import { MetaService } from "src/app/services/meta/meta.service";
 
 @Component({
@@ -13,10 +13,10 @@ export class ListComponent implements OnInit, OnDestroy {
   public totps: Totp[] = [];
   private totpsSubscription?: Subscription;
 
-  constructor(private readonly totpStore: TotpStoreService, private readonly metaService: MetaService) {}
+  constructor(private readonly totpService: TotpService, private readonly metaService: MetaService) {}
 
   ngOnInit(): void {
-    this.totpsSubscription = this.totpStore.getAll$().subscribe(totps => (this.totps = totps));
+    this.totpsSubscription = this.totpService.getAll$().subscribe(totps => (this.totps = totps));
 
     this.metaService
       .title()

@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs";
 import { MetaService } from "src/app/services/meta/meta.service";
-import { Totp } from "src/app/services/totp-store/totp";
-import { TotpStoreService } from "src/app/services/totp-store/totp-store.service";
+import { Totp } from "src/app/services/totp/totp";
+import { TotpService } from "src/app/services/totp/totp.service";
 
 @Component({
   selector: "app-codes",
@@ -18,7 +18,7 @@ export class CodesComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly route: ActivatedRoute,
-    private readonly totpStore: TotpStoreService,
+    private readonly totpService: TotpService,
     private readonly metaService: MetaService
   ) {}
 
@@ -29,7 +29,7 @@ export class CodesComponent implements OnInit, OnDestroy {
       const totpId = paramMap.get("id");
 
       if (!!totpId) {
-        this.totp = this.totpStore.getById(totpId);
+        this.totp = this.totpService.getById(totpId);
       }
     });
   }

@@ -4,7 +4,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NewComponent } from "./components/new/new.component";
-import { LOCAL_STORAGE } from "./services/totp-store/totp-store.service";
+import { LOCAL_STORAGE } from "./services/totp/totp.service";
 import { SsrService } from "./services/ssr/ssr.service";
 import { ListComponent } from "./components/list/list.component";
 import { AppRoutingModule } from "./app-routing.module";

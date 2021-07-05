@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { TotpStoreService } from "src/app/services/totp-store/totp-store.service";
-import { Algorithm } from "src/app/services/totp-store/totp";
+import { TotpService } from "src/app/services/totp/totp.service";
+import { Algorithm } from "src/app/services/totp/totp";
 import { Router } from "@angular/router";
 import { MetaService } from "src/app/services/meta/meta.service";
 import { base32chars } from "src/app/services/base32/base32.service";
@@ -38,7 +38,7 @@ export class NewComponent implements OnInit, AfterViewInit {
   @ViewChild("accountInput") accountInput?: ElementRef<HTMLInputElement>;
 
   constructor(
-    private readonly totpStorageService: TotpStoreService,
+    private readonly totpStorageService: TotpService,
     private readonly router: Router,
     private readonly metaService: MetaService
   ) {}

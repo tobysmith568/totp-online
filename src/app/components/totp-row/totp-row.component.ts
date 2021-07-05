@@ -1,8 +1,8 @@
 import { Component, Input, OnInit, Optional } from "@angular/core";
 import { ConfirmationService, MenuItem } from "primeng/api";
 import { ContextMenu } from "primeng/contextmenu";
-import { Totp } from "src/app/services/totp-store/totp";
-import { TotpStoreService } from "src/app/services/totp-store/totp-store.service";
+import { Totp } from "src/app/services/totp/totp";
+import { TotpService } from "src/app/services/totp/totp.service";
 import { ClockService } from "src/app/services/clock/clock.service";
 import { Router } from "@angular/router";
 import { TimeoutService } from "src/app/services/timeout/timeout.service";
@@ -38,7 +38,7 @@ export class TotpRowComponent implements OnInit {
 
   constructor(
     private readonly router: Router,
-    private readonly totpStore: TotpStoreService,
+    private readonly totpService: TotpService,
     private readonly clockService: ClockService,
     private readonly timeoutService: TimeoutService,
     @Optional() private readonly confirmationService: ConfirmationService
@@ -48,7 +48,7 @@ export class TotpRowComponent implements OnInit {
     const period = this.totp?.period ?? 30;
 
     this.clockService.secondOfTheHour$().subscribe(secondOfTheHour => {
-      this.code = this.totpStore.generate(this.totp, this.offset * period) ?? "";
+      this.code = this.totpService.generate(this.totp, this.offset * period) ?? "";
 
       const position = secondOfTheHour % period;
       if (position === 0 || this.startFromZero === false) {
@@ -99,7 +99,7 @@ export class TotpRowComponent implements OnInit {
           return;
         }
 
-        this.totpStore.delete(this.totp.id);
+        this.totpService.delete(this.totp.id);
       }
     });
   }
