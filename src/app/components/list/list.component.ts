@@ -28,14 +28,6 @@ export class ListComponent implements OnInit, OnDestroy {
   }
 
   public getTitle(totp: Totp) {
-    if (!totp) {
-      return "";
-    }
-
-    if (!!totp.issuer) {
-      return `${totp.issuer} (${totp.account})`;
-    }
-
-    return totp.account;
+    return this.totpService.getTitle(totp);
   }
 }

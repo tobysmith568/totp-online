@@ -1,0 +1,6 @@
+<div *ngIf="totpUrl" class="container">
+  <qr-code [value]="totpUrl" [size]="300"></qr-code>
+  <div class="p-component">
+    <h4>{{ totpTitle }}</h4>
+  </div>
+</div>

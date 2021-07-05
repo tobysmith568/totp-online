@@ -38,18 +38,6 @@ export class CodesComponent implements OnInit, OnDestroy {
     this.totpSubscription?.unsubscribe();
   }
 
-  public getTitle(totp: Totp | undefined) {
-    if (!totp) {
-      return "";
-    }
-
-    if (!!totp.issuer) {
-      return `${totp.issuer} (${totp.account})`;
-    }
-
-    return totp.account;
-  }
-
   public getOffset(index: number) {
     if (!this.totp?.period || index === undefined) {
       return "";
@@ -71,5 +59,9 @@ export class CodesComponent implements OnInit, OnDestroy {
     }
 
     return `${Math.abs(index)} ${direction} (${offset} minutes)`;
+  }
+
+  public getTitle(totp: Totp) {
+    return this.totpService.getTitle(totp);
   }
 }

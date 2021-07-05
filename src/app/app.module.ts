@@ -24,9 +24,11 @@ import { processConfig } from "src/environments/progress.config";
 import { NgScrollbarModule } from "ngx-scrollbar";
 import { scrollConfig } from "src/environments/scroll.config";
 import { CodesComponent } from "./components/codes/codes.component";
+import { QrComponent } from "./components/qr/qr.component";
+import { QrCodeModule } from "ng-qrcode";
 
 @NgModule({
-  declarations: [AppComponent, NewComponent, ListComponent, TotpRowComponent, CodesComponent],
+  declarations: [AppComponent, NewComponent, ListComponent, TotpRowComponent, CodesComponent, QrComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
     AppRoutingModule,
@@ -42,7 +44,8 @@ import { CodesComponent } from "./components/codes/codes.component";
     DialogModule,
     KeyFilterModule,
     NgCircleProgressModule.forRoot(processConfig),
-    NgScrollbarModule.withConfig(scrollConfig)
+    NgScrollbarModule.withConfig(scrollConfig),
+    QrCodeModule
   ],
   providers: [
     {

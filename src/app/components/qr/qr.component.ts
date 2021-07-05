@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs";
 import { MetaService } from "src/app/services/meta/meta.service";
-import { Totp } from "src/app/services/totp/totp";
 import { TotpService } from "src/app/services/totp/totp.service";
 
 @Component({
@@ -11,7 +10,8 @@ import { TotpService } from "src/app/services/totp/totp.service";
   styleUrls: ["./qr.component.scss"]
 })
 export class QrComponent implements OnInit, OnDestroy {
-  public totp?: Totp;
+  public totpUrl?: string;
+  public totpTitle?: string;
   private totpSubscription?: Subscription;
 
   constructor(
@@ -27,7 +27,9 @@ export class QrComponent implements OnInit, OnDestroy {
       const totpId = paramMap.get("id");
 
       if (!!totpId) {
-        this.totp = this.totpService.getById(totpId);
+        const totp = this.totpService.getById(totpId);
+        this.totpUrl = this.totpService.getUrl(totp);
+        this.totpTitle = this.totpService.getTitle(totp);
       }
     });
   }

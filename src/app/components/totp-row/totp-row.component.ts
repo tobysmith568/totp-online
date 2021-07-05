@@ -15,6 +15,7 @@ import { TimeoutService } from "src/app/services/timeout/timeout.service";
 export class TotpRowComponent implements OnInit {
   public totpContextMenu: MenuItem[] = [
     { label: "View code range", command: () => this.codeRange() },
+    { label: "View QR code", command: () => this.qr() },
     { label: "Copy as JSON", command: () => this.copy() },
     { label: "Delete", command: () => this.delete() }
   ];
@@ -71,6 +72,10 @@ export class TotpRowComponent implements OnInit {
 
   public codeRange() {
     this.router.navigate(["codes", this.totp?.id]);
+  }
+
+  public qr() {
+    this.router.navigate(["qr", this.totp?.id]);
   }
 
   public copy() {

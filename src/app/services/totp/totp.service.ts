@@ -93,7 +93,7 @@ export class TotpService {
     }
   }
 
-  public generate(totp: Totp | undefined, offsetInSeconds = 0) {
+  public generate(totp?: Totp, offsetInSeconds = 0) {
     if (!totp) {
       return;
     }
@@ -111,6 +111,45 @@ export class TotpService {
       (this.hexidecimalService.hex2dec(hmac.substr(offset * 2, 8)) & this.hexidecimalService.hex2dec("7fffffff")) + "";
     otp = otp.substr(otp.length - totp.digits, totp.digits);
     return otp;
+  }
+
+  public getTitle(totp?: Totp) {
+    if (!totp) {
+      return "";
+    }
+
+    if (!!totp.issuer) {
+      return `${totp.issuer} (${totp.account})`;
+    }
+
+    return totp.account;
+  }
+
+  public getUrl(totp?: Totp) {
+    if (!totp) {
+      return "";
+    }
+
+    const name = this.getUrlName(totp);
+
+    const url = new URL(`otpauth://totp/${name}`);
+    url.searchParams.append("secret", totp.secret);
+    url.searchParams.append("algorithm", totp.algorithm);
+    url.searchParams.append("digits", totp.digits.toString());
+    url.searchParams.append("period", totp.period.toString());
+
+    return url.toString();
+  }
+
+  private getUrlName(totp: Totp) {
+    const urlAccount = encodeURIComponent(totp.account);
+
+    if (totp.issuer.length === 0) {
+      return urlAccount;
+    }
+
+    const urlIssuer = encodeURIComponent(totp.issuer);
+    return `${urlIssuer}:${urlAccount}`;
   }
 
   private setAll(totps: Totp[]) {
