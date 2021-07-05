@@ -1,3 +1,6 @@
 <div *ngFor="let totp of totps">
-  <app-row [totp]="totp"></app-row>
+  <app-row [totp]="totp" [totpTitle]="getTitle(totp)" [showContext]="true">
+    <p>{{ getTitle(totp) }}</p>
+    <p class="secret">Secret: {{ totp?.secret }}</p>
+  </app-row>
 </div>

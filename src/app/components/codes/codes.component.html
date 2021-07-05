@@ -1,0 +1,8 @@
+<div *ngIf="totp">
+  <div *ngFor="let index of indexes">
+    <app-row [offset]="index" [totp]="totp" [totpTitle]="getTitle(totp)" [showContext]="false">
+      <p>{{ getTitle(totp) }}</p>
+      <p class="secret">{{ getOffset(index) }}</p>
+    </app-row>
+  </div>
+</div>

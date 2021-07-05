@@ -1,7 +1,11 @@
 import { Inject, Injectable, InjectionToken } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
+import { Base32Service } from "../base32/base32.service";
 import { GuidService } from "../guid/guid.service";
+import { HexidecimalService } from "../hexidecimal/hexidecimal.service";
+import { StringService } from "../string/string.service";
 import { Totp } from "./totp";
+import JsSHA from "jssha";
 
 export const LOCAL_STORAGE = new InjectionToken<typeof window.localStorage | null>("Local Storage");
 
@@ -15,6 +19,9 @@ export class TotpStoreService {
 
   constructor(
     @Inject(LOCAL_STORAGE) private readonly localStorage: typeof window.localStorage | null,
+    private readonly stringService: StringService,
+    private readonly base32Service: Base32Service,
+    private readonly hexidecimalService: HexidecimalService,
     private readonly guidService: GuidService
   ) {}
 
@@ -35,6 +42,18 @@ export class TotpStoreService {
 
     const interfaceValues: Totp[] = JSON.parse(stringValue);
     return interfaceValues;
+  }
+
+  public getById(id: string): Totp | undefined {
+    const all = this.getAll();
+
+    for (const totp of all) {
+      if (totp.id === id) {
+        return totp;
+      }
+    }
+
+    return undefined;
   }
 
   public create(totp: Omit<Totp, "id">) {
@@ -72,6 +91,26 @@ export class TotpStoreService {
         return;
       }
     }
+  }
+
+  public generate(totp: Totp | undefined, offsetInSeconds = 0) {
+    if (!totp) {
+      return;
+    }
+
+    const base32Secret = this.base32Service.base32tohex(totp.secret);
+    const epoch = Math.round(Date.now() / 1000.0) + offsetInSeconds;
+    const time = this.stringService.leftpad(this.hexidecimalService.dec2hex(Math.floor(epoch / totp.period)), 16, "0");
+
+    const shaObj = new JsSHA(totp.algorithm, "HEX", { hmacKey: { value: base32Secret, format: "HEX" } });
+    shaObj.update(time);
+    const hmac = shaObj.getHMAC("HEX");
+    const offset = this.hexidecimalService.hex2dec(hmac.substring(hmac.length - 1));
+
+    let otp =
+      (this.hexidecimalService.hex2dec(hmac.substr(offset * 2, 8)) & this.hexidecimalService.hex2dec("7fffffff")) + "";
+    otp = otp.substr(otp.length - totp.digits, totp.digits);
+    return otp;
   }
 
   private setAll(totps: Totp[]) {

@@ -26,4 +26,16 @@ export class ListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.totpsSubscription?.unsubscribe();
   }
+
+  public getTitle(totp: Totp) {
+    if (!totp) {
+      return "";
+    }
+
+    if (!!totp.issuer) {
+      return `${totp.issuer} (${totp.account})`;
+    }
+
+    return totp.account;
+  }
 }

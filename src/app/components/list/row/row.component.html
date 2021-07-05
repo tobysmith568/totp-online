@@ -7,20 +7,21 @@
     ></circle-progress>
   </div>
   <div class="details">
-    <p>{{ title }}</p>
-    <p class="secret">Secret: {{ totp?.secret }}</p>
+    <ng-content></ng-content>
   </div>
   <div class="code">{{ code }}</div>
-  <div class="context">
-    <button
-      pButton
-      type="button"
-      class="p-button-rounded p-button-outlined p-button-text context-button"
-      icon="pi pi-ellipsis-h"
-      iconPos="left"
-      #context
-      (click)="openContext(cm, $event)"
-    ></button>
+  <div *ngIf="showContext">
+    <div class="context">
+      <button
+        pButton
+        type="button"
+        class="p-button-rounded p-button-outlined p-button-text context-button"
+        icon="pi pi-ellipsis-h"
+        iconPos="left"
+        #context
+        (click)="openContext(cm, $event)"
+      ></button>
+    </div>
+    <p-contextMenu #cm [appendTo]="'body'" [model]="totpContextMenu"></p-contextMenu>
   </div>
-  <p-contextMenu #cm [appendTo]="'body'" [model]="totpContextMenu"></p-contextMenu>
 </div>

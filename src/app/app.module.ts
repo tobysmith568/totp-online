@@ -23,7 +23,7 @@ import { NgCircleProgressModule } from "ng-circle-progress";
 import { processConfig } from "src/environments/progress.config";
 import { NgScrollbarModule } from "ngx-scrollbar";
 import { scrollConfig } from "src/environments/scroll.config";
-import { CodesComponent } from './components/codes/codes.component';
+import { CodesComponent } from "./components/codes/codes.component";
 
 @NgModule({
   declarations: [AppComponent, NewComponent, ListComponent, RowComponent, CodesComponent],

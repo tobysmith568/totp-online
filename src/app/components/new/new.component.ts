@@ -28,23 +28,11 @@ export class NewComponent implements OnInit, AfterViewInit {
 
   public secret: string = "";
   public period: number = 30;
-  #digits: number = 6;
+  public digits: number = 6;
   public algorithm: Algorithm = "SHA-1";
 
-  public get digits() {
-    console.log("GET", this.#digits);
-    return this.#digits;
-  }
-
-  public set digits(value: number) {
-    console.log("SET", this.#digits);
-    this.#digits = value;
-  }
-
   public get formIsValid() {
-    return (
-      this.account.length > 0 && this.secret.length > 0 && !!this.#digits && this.#digits > 0 && this.#digits <= 12
-    );
+    return this.account.length > 0 && this.secret.length > 0 && !!this.digits && this.digits > 0 && this.digits <= 12;
   }
 
   @ViewChild("accountInput") accountInput?: ElementRef<HTMLInputElement>;

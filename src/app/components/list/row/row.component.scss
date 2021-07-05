@@ -17,14 +17,6 @@
   .details {
     overflow: hidden;
     padding: 0.2em;
-
-    p {
-      margin: 0.5em;
-    }
-
-    .secret {
-      white-space: nowrap;
-    }
   }
 
   .code {
@@ -38,6 +30,7 @@
     display: grid;
     align-items: center;
     justify-content: center;
+    height: 100%;
 
     .context-button {
       margin-right: 0.3em;
