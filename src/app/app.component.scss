@@ -12,14 +12,29 @@
   justify-content: space-around;
   align-items: stretch;
   height: 70%;
+
+  @media only screen and (max-width: 425px) {
+    height: 100%;
+  }
 }
 
 .panel {
   width: 45vw;
+  max-width: 550px;
+  min-width: 320px;
   background-color: white;
   border-radius: 1em;
   display: flex;
   flex-direction: column;
+
+  @media only screen and (max-width: 768px) {
+    width: 80vw;
+  }
+
+  @media only screen and (max-width: 425px) {
+    width: 100vw;
+    border-radius: 0;
+  }
 }
 
 .header {
@@ -28,6 +43,11 @@
   border-top-right-radius: 1em;
   border-bottom: 1px solid #e9ecef;
   padding: 1em;
+
+  @media only screen and (max-width: 425px) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
 
   display: flex;
   flex-direction: row;
