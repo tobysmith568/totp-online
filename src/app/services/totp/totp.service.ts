@@ -98,11 +98,11 @@ export class TotpService {
       return;
     }
 
-    const base32Secret = this.base32Service.base32tohex(totp.secret);
+    const hexSecret = this.base32Service.base32tohex(totp.secret);
     const epoch = Math.round(Date.now() / 1000.0) + offsetInSeconds;
     const time = this.stringService.leftpad(this.hexidecimalService.dec2hex(Math.floor(epoch / totp.period)), 16, "0");
 
-    const shaObj = new JsSHA(totp.algorithm, "HEX", { hmacKey: { value: base32Secret, format: "HEX" } });
+    const shaObj = new JsSHA(totp.algorithm, "HEX", { hmacKey: { value: hexSecret, format: "HEX" } });
     shaObj.update(time);
     const hmac = shaObj.getHMAC("HEX");
     const offset = this.hexidecimalService.hex2dec(hmac.substring(hmac.length - 1));

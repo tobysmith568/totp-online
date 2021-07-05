@@ -11,7 +11,11 @@
   <h3 class="p-col-12">Configuration</h3>
   <div class="p-field p-col-12">
     <label for="secret">Secret</label>
-    <input type="text" id="secret" class="ng-dirty" pInputText [(ngModel)]="secret" [pKeyFilter]="base32Regex" />
+
+    <div class="p-inputgroup">
+      <input type="text" id="secret" class="ng-dirty" pInputText [(ngModel)]="secret" [pKeyFilter]="base32Regex" />
+      <button type="button" pButton pRipple (click)="generateSecret()">Generate</button>
+    </div>
   </div>
   <div class="p-field p-col-4">
     <label for="digits">Digits</label>

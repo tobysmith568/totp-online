@@ -22,7 +22,19 @@ export class Base32Service {
       const chunk = bits.substr(i, 8);
       hex = hex + this.leftpad(parseInt(chunk, 2).toString(16), 2, "0");
     }
+
     return hex;
+  }
+
+  public random(length: number = 35) {
+    const result = new Array(length);
+
+    for (let i = 0; i < result.length; i++) {
+      const index = this.getRandomInt(0, base32chars.length - 1);
+      result[i] = base32chars[index];
+    }
+
+    return result.join("").toLowerCase();
   }
 
   private leftpad(str: string, len: number, pad = "0") {
@@ -30,5 +42,11 @@ export class Base32Service {
       str = Array(len + 1 - str.length).join(pad) + str;
     }
     return str;
+  }
+
+  private getRandomInt(min: number, max: number) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 }

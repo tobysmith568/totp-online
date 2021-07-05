@@ -3,7 +3,7 @@ import { TotpService } from "src/app/services/totp/totp.service";
 import { Algorithm } from "src/app/services/totp/totp";
 import { Router } from "@angular/router";
 import { MetaService } from "src/app/services/meta/meta.service";
-import { base32chars } from "src/app/services/base32/base32.service";
+import { base32chars, Base32Service } from "src/app/services/base32/base32.service";
 
 @Component({
   selector: "app-new",
@@ -40,7 +40,8 @@ export class NewComponent implements OnInit, AfterViewInit {
   constructor(
     private readonly totpStorageService: TotpService,
     private readonly router: Router,
-    private readonly metaService: MetaService
+    private readonly metaService: MetaService,
+    private readonly base32Service: Base32Service
   ) {}
 
   ngOnInit(): void {
@@ -62,5 +63,9 @@ export class NewComponent implements OnInit, AfterViewInit {
     });
 
     this.router.navigate([""]);
+  }
+
+  public generateSecret() {
+    this.secret = this.base32Service.random();
   }
 }
