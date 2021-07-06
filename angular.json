@@ -32,13 +32,13 @@
             "assets": [
               {
                 "glob": "**",
-                "input": "src/app/assets",
+                "input": "src/assets",
                 "output": "./assets",
                 "ignore": ["__root__/**"]
               },
               {
                 "glob": "**",
-                "input": "src/app/assets/__root__",
+                "input": "src/assets/__root__",
                 "output": "./"
               }
             ],
