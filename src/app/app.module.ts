@@ -26,9 +26,10 @@ import { scrollConfig } from "src/environments/scroll.config";
 import { CodesComponent } from "./components/codes/codes.component";
 import { QrComponent } from "./components/qr/qr.component";
 import { QrCodeModule } from "ng-qrcode";
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, NewComponent, ListComponent, TotpRowComponent, CodesComponent, QrComponent],
+  declarations: [AppComponent, NewComponent, ListComponent, TotpRowComponent, CodesComponent, QrComponent, NotFoundComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
     AppRoutingModule,
