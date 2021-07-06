@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs";
 import { MetaService } from "src/app/services/meta/meta.service";
+import { NotFoundService } from "src/app/services/not-found/not-found.service";
 import { Totp } from "src/app/services/totp/totp";
 import { TotpService } from "src/app/services/totp/totp.service";
 
@@ -19,7 +20,8 @@ export class CodesComponent implements OnInit, OnDestroy {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly totpService: TotpService,
-    private readonly metaService: MetaService
+    private readonly metaService: MetaService,
+    private readonly notFoundService: NotFoundService
   ) {}
 
   ngOnInit(): void {
@@ -28,8 +30,16 @@ export class CodesComponent implements OnInit, OnDestroy {
     this.totpSubscription = this.route.paramMap.subscribe(paramMap => {
       const totpId = paramMap.get("id");
 
-      if (!!totpId) {
-        this.totp = this.totpService.getById(totpId);
+      if (!totpId) {
+        this.notFoundService.goTo404();
+        return;
+      }
+
+      this.totp = this.totpService.getById(totpId);
+
+      if (!this.totp) {
+        this.notFoundService.goTo404();
+        return;
       }
     });
   }
