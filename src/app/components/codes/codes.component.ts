@@ -58,7 +58,7 @@ export class CodesComponent implements OnInit, OnDestroy {
       return "1 minute";
     }
 
-    return `${Math.abs(index)} ${direction} (${offset} minutes)`;
+    return `${Math.abs(index)} ${direction} (${offset / 60} minutes)`;
   }
 
   public getTitle(totp: Totp) {
