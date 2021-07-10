@@ -1,27 +1,45 @@
 # TotpOnline
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.2.
+If you're writing software with 2-Factor Authentication (2FA/MFA) and you're rightfully avoiding using emails or SMS messages, then you're probably implementing one of two well-known algorithms where the user retrieves a code from an app of their phone. If the codes on the user's phone cycle on a regular interval then that's using an algorithm known as Time-based One-Time Password (TOTP).
 
-## Development server
+[Totp-Online](https://totp-online.tobythe.dev) can be used to generate TOTP configurations of all shapes and sizes, as well as generate the codes to use in your software to log in. Use [Totp-Online](https://totp-online.tobythe.dev) to generate TOTP secrets and codes to use while making and testing software secured by TOTP.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Note that it's not cryptographically secure so you shouldn't be using it in production but it does store your configurations in local storage so they're there the next time you visit!
 
-## Code scaffolding
+## Support
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+While most of the TOTP apps that your users will be using only support SHA-1 hashing, 30 seconds time intervals, and 6-digit codes, [Totp-Online](https://totp-online.tobythe.dev) allows you to configure all the possibilities that the [TOTP IETF standard](https://datatracker.ietf.org/doc/html/rfc6238) supports.
 
-## Build
+The supported hashing algorithms are:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+ - SHA-1
+ - SHA-224
+ - SHA-256
+ - SHA-384
+ - SHA-512
 
-## Running unit tests
+The supported time intervals (periods) are:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+ - 15 seconds
+ - 30 seconds
+ - 1 minute
+ - 2 minutes
+ - 5 minutes
+ - 10 minutes
 
-## Running end-to-end tests
+[Totp-Online](https://totp-online.tobythe.dev) also supports code lengths between 6 and 10.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Ranges
 
-## Further help
+When a user inputs their TOTP code into a website or app, they usually don't need to use the current active code specifically. Usually, software that implements TOTP authentication allows the user to input one of a range of codes to allow for clock-drift and the delay it takes for a user to use the code. This means if your code changes, it's still probably good for using for around a minute or so - depending on the software's implementation.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+For those developing TOTP into their app, [Totp-Online](https://totp-online.tobythe.dev) allows you to see a whole range of codes for a given configuration. By clicking on the context menu of a config and selecting "View code range" you can see 5 codes into the past and 5 codes into the future. This allows you to test the ranges that your software supports and ensure that it's to your liking.
+
+## To run the app
+
+The app can be found at https://totp-online.tobythe.dev but if you want to run it yourself you can use:
+
+```sh
+npm install
+npm run dev:ssr
+```
