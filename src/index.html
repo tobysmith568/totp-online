@@ -12,9 +12,15 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg?v=1625501591" color="#000000" />
     <link rel="shortcut icon" href="/favicon.ico?v=1625501591" />
     <meta name="msapplication-TileColor" content="#2d89ef" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#0070CD" />
   </head>
   <body>
     <app-root></app-root>
+    <noscript>Please enable JavaScript to continue using this application.</noscript>
   </body>
+  <script>
+    window.addEventListener("appinstalled", evt => {
+      console.log("installed!!!");
+    });
+  </script>
 </html>

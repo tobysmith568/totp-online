@@ -4,7 +4,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NewComponent } from "./components/new/new.component";
-import { LOCAL_STORAGE } from "./services/totp/totp.service";
 import { SsrService } from "./services/ssr/ssr.service";
 import { ListComponent } from "./components/list/list.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -26,10 +25,20 @@ import { scrollConfig } from "src/environments/scroll.config";
 import { CodesComponent } from "./components/codes/codes.component";
 import { QrComponent } from "./components/qr/qr.component";
 import { QrCodeModule } from "ng-qrcode";
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NotFoundComponent } from "./components/not-found/not-found.component";
+import { ServiceWorkerModule } from "@angular/service-worker";
+import { environment } from "../environments/environment";
 
 @NgModule({
-  declarations: [AppComponent, NewComponent, ListComponent, TotpRowComponent, CodesComponent, QrComponent, NotFoundComponent],
+  declarations: [
+    AppComponent,
+    NewComponent,
+    ListComponent,
+    TotpRowComponent,
+    CodesComponent,
+    QrComponent,
+    NotFoundComponent
+  ],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
     AppRoutingModule,
@@ -46,7 +55,13 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     KeyFilterModule,
     NgCircleProgressModule.forRoot(processConfig),
     NgScrollbarModule.withConfig(scrollConfig),
-    QrCodeModule
+    QrCodeModule,
+    ServiceWorkerModule.register("ngsw-worker.js", {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: "registerWhenStable:30000"
+    })
   ],
   providers: [
     {

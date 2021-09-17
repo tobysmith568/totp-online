@@ -27,9 +27,9 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const update = (url: string) => {
-      const urlSegments = url.split("/");
-      this.isOnHomepage = urlSegments.length < 2 || urlSegments[1] === "";
+    const update = (path: string) => {
+      const url = new URL(path, "http://any.domain");
+      this.isOnHomepage = url.pathname === "/";
     };
 
     this.router.events.subscribe({

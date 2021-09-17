@@ -10,7 +10,8 @@
     "dev:ssr": "ng run totp-online:serve-ssr",
     "serve:ssr": "node dist/totp-online/server/main.js",
     "build:ssr": "ng build && ng run totp-online:server",
-    "prerender": "ng run totp-online:prerender"
+    "prerender": "ng run totp-online:prerender",
+    "pwa:serve": "http-server -p 8080 -c-1 dist/totp-online/browser"
   },
   "private": true,
   "prettier": "@tobysmith568/prettier-config",
@@ -25,6 +26,7 @@
     "@angular/platform-browser-dynamic": "~12.0.2",
     "@angular/platform-server": "~12.0.2",
     "@angular/router": "~12.0.2",
+    "@angular/service-worker": "~12.0.2",
     "@nguniversal/express-engine": "^12.0.2",
     "express": "^4.15.2",
     "jssha": "^3.2.0",
@@ -49,6 +51,7 @@
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "@types/uuid": "^8.3.0",
+    "http-server": "^13.0.2",
     "jasmine-core": "~3.7.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
