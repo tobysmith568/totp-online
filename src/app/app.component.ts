@@ -8,6 +8,7 @@ import { NavigationEnd, Router } from "@angular/router";
 import { Message } from "primeng/api";
 import { MetaService } from "./services/meta/meta.service";
 import { SsrService } from "./services/ssr/ssr.service";
+import { Location } from "@angular/common";
 
 interface BeforeInstallPromptEvent {
   prompt: () => void;
@@ -43,7 +44,8 @@ export class AppComponent implements OnInit {
     public readonly ssrService: SsrService,
     private readonly router: Router,
     private readonly metaService: MetaService,
-    private readonly cdr: ChangeDetectorRef
+    private readonly cdr: ChangeDetectorRef,
+    private readonly location: Location
   ) {
     this.innerWidth = ssrService.isServerSide ? 0 : window.innerWidth;
   }
@@ -86,7 +88,7 @@ export class AppComponent implements OnInit {
       return;
     }
 
-    await this.router.navigate([""]);
+    this.location.back();
   }
 
   public async pwaInstall(): Promise<void> {
