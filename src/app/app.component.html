@@ -7,7 +7,10 @@
           *ngIf="!ssrService.isServerSide"
           pButton
           type="button"
-          class="p-button-rounded p-button-outlined p-button-text context-button"
+          class="
+            p-button-rounded p-button-outlined p-button-text
+            context-button
+          "
           icon="pi {{ headerButtonIcon }}"
           iconPos="left"
           #context
@@ -18,8 +21,42 @@
       <ng-scrollbar>
         <router-outlet></router-outlet>
       </ng-scrollbar>
+
+      <p-messages
+        severity="info"
+        [closable]="true"
+        *ngIf="beforeInstallEvent && isMobile"
+        class="pwa-message-container"
+      >
+        <ng-template pTemplate>
+          <div class="pwa-message">
+            <a href="#" (click)="pwaInstall()"
+              >Click here to install as a PWA!</a
+            >
+            <button
+              pButton
+              type="button"
+              icon="pi pi-times"
+              class="p-button-sm p-button-rounded p-button-text"
+              (click)="removePwaEvent()"
+            ></button>
+          </div>
+        </ng-template>
+      </p-messages>
     </div>
   </div>
+</div>
+
+<div class="pwa-install" *ngIf="beforeInstallEvent && !isMobile">
+  <button
+    pButton
+    pRipple
+    type="button"
+    class="p-button-raised p-button-rounded"
+    (click)="pwaInstall()"
+  >
+    Install as a PWA!
+  </button>
 </div>
 
 <div *ngIf="!ssrService.isServerSide">

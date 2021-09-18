@@ -1,16 +1,29 @@
-import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
+import {
+  ChangeDetectorRef,
+  Component,
+  HostListener,
+  OnInit,
+} from "@angular/core";
 import { NavigationEnd, Router } from "@angular/router";
+import { Message } from "primeng/api";
 import { MetaService } from "./services/meta/meta.service";
 import { SsrService } from "./services/ssr/ssr.service";
+
+interface BeforeInstallPromptEvent {
+  prompt: () => void;
+  userChoice: Promise<{ outcome: "accepted" | "rejected" }>;
+}
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements OnInit {
   public title = "";
   private isOnHomepage = true;
+
+  public beforeInstallEvent?: BeforeInstallPromptEvent;
 
   public get headerButtonIcon() {
     return this.isOnHomepage ? "pi-plus" : "pi-angle-left";
@@ -19,12 +32,21 @@ export class AppComponent implements OnInit {
     return this.isOnHomepage ? "" : "Back";
   }
 
+  private innerWidth: number;
+  public get isMobile(): boolean {
+    return this.innerWidth < 425;
+  }
+
+  public messages: Message[] = [];
+
   constructor(
     public readonly ssrService: SsrService,
     private readonly router: Router,
     private readonly metaService: MetaService,
-    private cdr: ChangeDetectorRef
-  ) {}
+    private readonly cdr: ChangeDetectorRef
+  ) {
+    this.innerWidth = ssrService.isServerSide ? 0 : window.innerWidth;
+  }
 
   ngOnInit(): void {
     const update = (path: string) => {
@@ -33,19 +55,29 @@ export class AppComponent implements OnInit {
     };
 
     this.router.events.subscribe({
-      next: event => {
+      next: (event) => {
         if (event instanceof NavigationEnd) {
           const { url } = event;
           update(url);
         }
-      }
+      },
     });
     update(this.router.url);
 
-    this.metaService.title$().subscribe(title => {
+    this.metaService.title$().subscribe((title) => {
       this.title = title;
       this.cdr.detectChanges();
     });
+  }
+
+  @HostListener("window:resize")
+  onResize() {
+    this.innerWidth = window.innerWidth;
+  }
+
+  @HostListener("window:beforeinstallprompt", ["$event"])
+  installedEvent(e: BeforeInstallPromptEvent) {
+    this.beforeInstallEvent = e;
   }
 
   public async headerButton(): Promise<void> {
@@ -55,5 +87,22 @@ export class AppComponent implements OnInit {
     }
 
     await this.router.navigate([""]);
+  }
+
+  public async pwaInstall(): Promise<void> {
+    if (!this.beforeInstallEvent) {
+      return;
+    }
+
+    this.beforeInstallEvent.prompt();
+
+    const { outcome } = await this.beforeInstallEvent.userChoice;
+    if (outcome === "accepted") {
+      this.beforeInstallEvent = undefined;
+    }
+  }
+
+  public removePwaEvent() {
+    this.beforeInstallEvent = undefined;
   }
 }

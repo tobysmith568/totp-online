@@ -27,7 +27,10 @@ import { QrComponent } from "./components/qr/qr.component";
 import { QrCodeModule } from "ng-qrcode";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { ServiceWorkerModule } from "@angular/service-worker";
+import { MessagesModule } from "primeng/messages";
+import { MessageModule } from "primeng/message";
 import { environment } from "../environments/environment";
+import { LOCAL_STORAGE } from "./services/totp/totp.service";
 
 @NgModule({
   declarations: [
@@ -37,7 +40,7 @@ import { environment } from "../environments/environment";
     TotpRowComponent,
     CodesComponent,
     QrComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),
@@ -53,6 +56,8 @@ import { environment } from "../environments/environment";
     ConfirmDialogModule,
     DialogModule,
     KeyFilterModule,
+    MessagesModule,
+    MessageModule,
     NgCircleProgressModule.forRoot(processConfig),
     NgScrollbarModule.withConfig(scrollConfig),
     QrCodeModule,
@@ -60,8 +65,8 @@ import { environment } from "../environments/environment";
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: "registerWhenStable:30000"
-    })
+      registrationStrategy: "registerWhenStable:30000",
+    }),
   ],
   providers: [
     {
@@ -73,10 +78,10 @@ import { environment } from "../environments/environment";
 
         return window.localStorage;
       },
-      deps: [SsrService]
+      deps: [SsrService],
     },
-    ConfirmationService
+    ConfirmationService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

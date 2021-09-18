@@ -6,3 +6,10 @@ body {
   height: 100%;
   font-size: 1.05em;
 }
+
+.pwa-message-container {
+  .p-message {
+    margin: 0;
+    border-radius: 0px;
+  }
+}
