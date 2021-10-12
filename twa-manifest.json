@@ -3,7 +3,7 @@
   "host": "totp-online.tobythe.dev",
   "name": "TOTP Manager",
   "launcherName": "TOTP Manager",
-  "display": "fullscreen",
+  "display": "standalone",
   "themeColor": "#F8F9FA",
   "navigationColor": "#000000",
   "navigationColorDark": "#000000",
@@ -20,9 +20,8 @@
     "path": "./android.keystore",
     "alias": "totp"
   },
-  "appVersion": "1.0.1",
   "appVersionName": "1.0.1",
-  "appVersionCode": 2,
+  "appVersionCode": 4,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "http://localhost:8080/site.webmanifest",
@@ -35,5 +34,6 @@
   "isChromeOSOnly": false,
   "orientation": "portrait",
   "fingerprints": [],
-  "additionalTrustedOrigins": []
+  "additionalTrustedOrigins": [],
+  "appVersion": "1.0.1"
 }
