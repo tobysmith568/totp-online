@@ -1,0 +1,22 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "uk.tobysmith.totp",
+      "sha256_cert_fingerprints": [
+        "94:32:78:31:B6:87:E6:2C:51:C4:BF:1C:10:31:94:A7:51:B6:69:E8:60:24:05:04:EF:2E:B5:7C:06:13:BF:EE"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "uk.tobysmith.totp",
+      "sha256_cert_fingerprints": [
+        "81:DB:39:4D:1A:BA:2A:B8:66:EA:47:A3:65:25:92:91:79:E9:F1:43:C1:AF:C1:D1:CD:6F:02:61:2B:5D:2A:AA"
+      ]
+    }
+  }
+]

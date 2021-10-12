@@ -34,12 +34,17 @@
                 "glob": "**",
                 "input": "src/assets",
                 "output": "./assets",
-                "ignore": ["__root__/**"]
+                "ignore": ["__root__/**", "__.well-known__/**"]
               },
               {
                 "glob": "**",
                 "input": "src/assets/__root__",
                 "output": "./"
+              },
+              {
+                "glob": "**",
+                "input": "src/assets/__.well-known__",
+                "output": "./.well-known"
               }
             ],
             "styles": [
