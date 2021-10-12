@@ -1,0 +1,39 @@
+{
+  "packageId": "uk.tobysmith.totp",
+  "host": "totp-online.tobythe.dev",
+  "name": "TOTP Manager",
+  "launcherName": "TOTP Manager",
+  "display": "standalone",
+  "themeColor": "#F8F9FA",
+  "navigationColor": "#000000",
+  "navigationColorDark": "#000000",
+  "navigationDividerColor": "#000000",
+  "navigationDividerColorDark": "#000000",
+  "backgroundColor": "#FFFFFF",
+  "enableNotifications": true,
+  "startUrl": "/?source=pwa",
+  "iconUrl": "http://localhost:8080/assets/icons/android/android-launchericon-512-512.png",
+  "maskableIconUrl": "http://localhost:8080/assets/icons/android/android-launchericon-512-512.png",
+  "monochromeIconUrl": "http://localhost:8080/assets/icons/android/android-launchericon-48-48.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "./android.keystore",
+    "alias": "totp"
+  },
+  "appVersionName": "1",
+  "appVersionCode": 1,
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "http://localhost:8080/site.webmanifest",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "orientation": "portrait",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [],
+  "appVersion": "1"
+}

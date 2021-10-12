@@ -1,0 +1,275 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<!--
+3    Copyright 2019 Google Inc. All Rights Reserved.
+4
+5     Licensed under the Apache License, Version 2.0 (the "License");
+6     you may not use this file except in compliance with the License.
+7     You may obtain a copy of the License at
+8
+9         http://www.apache.org/licenses/LICENSE-2.0
+10
+11     Unless required by applicable law or agreed to in writing, software
+12     distributed under the License is distributed on an "AS IS" BASIS,
+13     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+14     See the License for the specific language governing permissions and
+15     limitations under the License.
+16-->
+17<!--
+18 The "package" attribute is rewritten by the Gradle build with the value of applicationId.
+19     It is still required here, as it is used to derive paths, for instance when referring
+20     to an Activity by ".MyActivity" instead of the full name. If more Activities are added to the
+21     application, the package attribute will need to reflect the correct path in order to use
+22     the abbreviated format.
+23-->
+24<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+25    package="uk.tobysmith.totp"
+26    android:versionCode="1"
+27    android:versionName="1" >
+28
+29    <uses-sdk
+30        android:minSdkVersion="19"
+30-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml
+31        android:targetSdkVersion="30" />
+31-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml
+32
+33    <queries>
+33-->[com.google.androidbrowserhelper:androidbrowserhelper:2.2.1] C:\Users\tobys\.gradle\caches\transforms-2\files-2.1\43500dace97d54a90d7f296959ce8d3a\androidbrowserhelper-2.2.1\AndroidManifest.xml:26:5-34:15
+34        <intent>
+34-->[com.google.androidbrowserhelper:androidbrowserhelper:2.2.1] C:\Users\tobys\.gradle\caches\transforms-2\files-2.1\43500dace97d54a90d7f296959ce8d3a\androidbrowserhelper-2.2.1\AndroidManifest.xml:27:9-33:18
+35            <action android:name="android.intent.action.VIEW" />
+35-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:122:17-68
+35-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:122:25-66
+36
+37            <category android:name="android.intent.category.BROWSABLE" />
+37-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:124:17-77
+37-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:124:27-75
+38
+39            <data android:scheme="https" />
+39-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:125:17-126:54
+39-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:125:23-45
+40        </intent>
+41    </queries>
+42
+43    <application
+43-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:29:5-165:19
+44        android:name="uk.tobysmith.totp.Application"
+44-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:30:9-35
+45        android:allowBackup="true"
+45-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:31:9-35
+46        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+46-->[androidx.core:core:1.1.0] C:\Users\tobys\.gradle\caches\transforms-2\files-2.1\e601daed4ba62929db8b322b2974c8f8\core-1.1.0\AndroidManifest.xml:24:18-86
+47        android:icon="@mipmap/ic_launcher"
+47-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:32:9-43
+48        android:label="@string/appName"
+48-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:33:9-40
+49        android:manageSpaceActivity="com.google.androidbrowserhelper.trusted.ManageDataLauncherActivity"
+49-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:35:9-105
+50        android:supportsRtl="true"
+50-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:37:9-35
+51        android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+51-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:38:9-68
+52        <meta-data
+52-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:40:9-42:58
+53            android:name="asset_statements"
+53-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:41:13-44
+54            android:resource="@string/assetStatements" />
+54-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:42:13-55
+55        <meta-data
+55-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:45:13-47:58
+56            android:name="web_manifest_url"
+56-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:46:17-48
+57            android:value="@string/webManifestUrl" />
+57-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:47:17-55
+58        <meta-data
+58-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:50:9-52:52
+59            android:name="twa_generator"
+59-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:51:13-41
+60            android:value="@string/generatorApp" />
+60-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:52:13-49
+61
+62        <activity android:name="com.google.androidbrowserhelper.trusted.ManageDataLauncherActivity" >
+62-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:55:13-59:24
+62-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:55:23-104
+63            <meta-data
+63-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:56:13-58:53
+64                android:name="android.support.customtabs.trusted.MANAGE_SPACE_URL"
+64-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:57:17-83
+65                android:value="@string/launchUrl" />
+65-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:58:17-50
+66        </activity>
+67        <activity
+67-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:62:9-130:20
+68            android:name="uk.tobysmith.totp.LauncherActivity"
+68-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:62:19-50
+69            android:alwaysRetainTaskState="true"
+69-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:63:13-49
+70            android:label="@string/launcherName" >
+70-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:64:13-49
+71            <meta-data
+71-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:65:13-66:53
+72                android:name="android.support.customtabs.trusted.DEFAULT_URL"
+72-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:65:24-85
+73                android:value="@string/launchUrl" />
+73-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:66:17-50
+74            <meta-data
+74-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:68:13-70:58
+75                android:name="android.support.customtabs.trusted.STATUS_BAR_COLOR"
+75-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:69:17-83
+76                android:resource="@color/colorPrimary" />
+76-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:70:17-55
+77            <meta-data
+77-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:72:13-74:61
+78                android:name="android.support.customtabs.trusted.NAVIGATION_BAR_COLOR"
+78-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:73:17-87
+79                android:resource="@color/navigationColor" />
+79-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:74:17-58
+80            <meta-data
+80-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:76:13-78:65
+81                android:name="android.support.customtabs.trusted.NAVIGATION_BAR_COLOR_DARK"
+81-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:77:17-92
+82                android:resource="@color/navigationColorDark" />
+82-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:78:17-62
+83            <meta-data
+83-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:80:13-82:68
+84                android:name="androix.browser.trusted.NAVIGATION_BAR_DIVIDER_COLOR"
+84-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:81:17-84
+85                android:resource="@color/navigationDividerColor" />
+85-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:82:17-65
+86            <meta-data
+86-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:84:13-86:72
+87                android:name="androix.browser.trusted.NAVIGATION_BAR_DIVIDER_COLOR_DARK"
+87-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:85:17-89
+88                android:resource="@color/navigationDividerColorDark" />
+88-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:86:17-69
+89            <meta-data
+89-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:88:13-89:54
+90                android:name="android.support.customtabs.trusted.SPLASH_IMAGE_DRAWABLE"
+90-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:88:24-95
+91                android:resource="@drawable/splash" />
+91-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:89:17-52
+92            <meta-data
+92-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:91:13-92:60
+93                android:name="android.support.customtabs.trusted.SPLASH_SCREEN_BACKGROUND_COLOR"
+93-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:91:24-104
+94                android:resource="@color/backgroundColor" />
+94-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:92:17-58
+95            <meta-data
+95-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:94:13-95:71
+96                android:name="android.support.customtabs.trusted.SPLASH_SCREEN_FADE_OUT_DURATION"
+96-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:94:24-105
+97                android:value="@integer/splashScreenFadeOutDuration" />
+97-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:95:17-69
+98            <meta-data
+98-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:97:13-98:60
+99                android:name="android.support.customtabs.trusted.FILE_PROVIDER_AUTHORITY"
+99-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:97:24-97
+100                android:value="@string/providerAuthority" />
+100-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:98:17-58
+101            <meta-data
+101-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:100:13-97
+102                android:name="android.app.shortcuts"
+102-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:100:24-60
+103                android:resource="@xml/shortcuts" />
+103-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:100:61-94
+104            <meta-data
+104-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:102:13-103:56
+105                android:name="android.support.customtabs.trusted.FALLBACK_STRATEGY"
+105-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:102:24-91
+106                android:value="@string/fallbackType" />
+106-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:103:17-53
+107            <meta-data
+107-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:109:13-110:54
+108                android:name="android.support.customtabs.trusted.SCREEN_ORIENTATION"
+108-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:109:24-92
+109                android:value="@string/orientation" />
+109-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:110:17-52
+110
+111            <intent-filter>
+111-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:116:13-119:29
+112                <action android:name="android.intent.action.MAIN" />
+112-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:117:17-69
+112-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:117:25-66
+113
+114                <category android:name="android.intent.category.LAUNCHER" />
+114-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:118:17-77
+114-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:118:27-74
+115            </intent-filter>
+116            <intent-filter android:autoVerify="true" >
+116-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:121:13-127:29
+116-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:121:28-53
+117                <action android:name="android.intent.action.VIEW" />
+117-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:122:17-68
+117-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:122:25-66
+118
+119                <category android:name="android.intent.category.DEFAULT" />
+119-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:123:17-76
+119-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:123:27-73
+120                <category android:name="android.intent.category.BROWSABLE" />
+120-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:124:17-77
+120-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:124:27-75
+121
+122                <data
+122-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:125:17-126:54
+123                    android:host="@string/hostName"
+123-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:126:21-52
+124                    android:scheme="https" />
+124-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:125:23-45
+125            </intent-filter>
+126        </activity>
+127        <activity android:name="com.google.androidbrowserhelper.trusted.FocusActivity" />
+127-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:132:9-90
+127-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:132:19-87
+128        <activity
+128-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:134:9-135:62
+129            android:name="com.google.androidbrowserhelper.trusted.WebViewFallbackActivity"
+129-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:134:19-97
+130            android:configChanges="orientation|screenSize" />
+130-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:135:13-59
+131
+132        <provider
+132-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:137:9-145:20
+133            android:name="androidx.core.content.FileProvider"
+133-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:138:13-62
+134            android:authorities="@string/providerAuthority"
+134-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:139:13-60
+135            android:exported="false"
+135-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:141:13-37
+136            android:grantUriPermissions="true" >
+136-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:140:13-47
+137            <meta-data
+137-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:142:13-144:53
+138                android:name="android.support.FILE_PROVIDER_PATHS"
+138-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:143:17-67
+139                android:resource="@xml/filepaths" />
+139-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:144:17-50
+140        </provider>
+141
+142        <service
+142-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:147:9-162:19
+143            android:name="uk.tobysmith.totp.DelegationService"
+143-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:148:13-46
+144            android:enabled="@bool/enableNotification"
+144-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:149:13-55
+145            android:exported="@bool/enableNotification" >
+145-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:150:13-56
+146            <meta-data
+146-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:153:17-155:73
+147                android:name="android.support.customtabs.trusted.SMALL_ICON"
+147-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:154:21-81
+148                android:resource="@drawable/ic_notification_icon" />
+148-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:155:21-70
+149
+150            <intent-filter>
+150-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:158:13-161:29
+151                <action android:name="android.support.customtabs.trusted.TRUSTED_WEB_ACTIVITY_SERVICE" />
+151-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:159:17-105
+151-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:159:25-103
+152
+153                <category android:name="android.intent.category.DEFAULT" />
+153-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:123:17-76
+153-->C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:123:27-73
+154            </intent-filter>
+155        </service>
+156    </application>
+157
+158</manifest>
