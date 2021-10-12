@@ -1,8 +1,0 @@
-uk/tobysmith/totp/BuildConfig.java
- uk.tobysmith.totp.BuildConfig
-uk/tobysmith/totp/DelegationService.java
- uk.tobysmith.totp.DelegationService
-uk/tobysmith/totp/Application.java
- uk.tobysmith.totp.Application
-uk/tobysmith/totp/LauncherActivity.java
- uk.tobysmith.totp.LauncherActivity
