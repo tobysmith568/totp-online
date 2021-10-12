@@ -1,34 +1,34 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-166:12
-INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-166:12
-INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-166:12
-INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-166:12
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-169:12
+INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-169:12
+INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-169:12
+INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-169:12
 MERGED from [com.google.androidbrowserhelper:androidbrowserhelper:2.2.1] C:\Users\tobys\.gradle\caches\transforms-2\files-2.1\43500dace97d54a90d7f296959ce8d3a\androidbrowserhelper-2.2.1\AndroidManifest.xml:17:1-36:12
 MERGED from [androidx.browser:browser:1.3.0] C:\Users\tobys\.gradle\caches\transforms-2\files-2.1\963df8e848637d5dcc4b558ad75c146e\browser-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core:1.1.0] C:\Users\tobys\.gradle\caches\transforms-2\files-2.1\e601daed4ba62929db8b322b2974c8f8\core-1.1.0\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\tobys\.gradle\caches\transforms-2\files-2.1\90ecde5404179819368e2359ab771b50\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\tobys\.gradle\caches\transforms-2\files-2.1\722883bbeda4a23af2c332d7342ff3d3\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\tobys\.gradle\caches\transforms-2\files-2.1\1fed12a61eaf3956026778ada29c2705\lifecycle-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-166:12
-INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-166:12
-INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-166:12
+INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-169:12
+INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-169:12
+INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-169:12
 	package
 		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:23:5-32
 		INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-166:12
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-169:12
 		INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-166:12
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:1-169:12
 		INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:22:11-69
 application
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:29:5-165:19
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:29:5-168:19
 MERGED from [androidx.core:core:1.1.0] C:\Users\tobys\.gradle\caches\transforms-2\files-2.1\e601daed4ba62929db8b322b2974c8f8\core-1.1.0\AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.1.0] C:\Users\tobys\.gradle\caches\transforms-2\files-2.1\e601daed4ba62929db8b322b2974c8f8\core-1.1.0\AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\tobys\.gradle\caches\transforms-2\files-2.1\90ecde5404179819368e2359ab771b50\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
@@ -78,7 +78,7 @@ ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.
 	android:name
 		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:57:17-83
 activity#uk.tobysmith.totp.LauncherActivity
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:62:9-130:20
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:62:9-133:20
 	android:label
 		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:64:13-49
 	android:alwaysRetainTaskState
@@ -157,90 +157,96 @@ ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.
 		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:103:17-53
 	android:name
 		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:102:24-91
-meta-data#android.support.customtabs.trusted.SCREEN_ORIENTATION
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:109:13-110:54
+meta-data#android.support.customtabs.trusted.DISPLAY_MODE
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:108:13-109:45
 	android:value
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:110:17-52
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:109:17-42
 	android:name
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:109:24-92
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:108:24-86
+meta-data#android.support.customtabs.trusted.SCREEN_ORIENTATION
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:112:13-113:54
+	android:value
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:113:17-52
+	android:name
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:112:24-92
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:116:13-119:29
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:119:13-122:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:117:17-69
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:120:17-69
 	android:name
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:117:25-66
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:120:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:118:17-77
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:121:17-77
 	android:name
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:118:27-74
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:121:27-74
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:@string/hostName+data:scheme:https
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:121:13-127:29
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:124:13-130:29
 	android:autoVerify
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:121:28-53
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:124:28-53
 action#android.intent.action.VIEW
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:122:17-68
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:125:17-68
 	android:name
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:122:25-66
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:125:25-66
 category#android.intent.category.DEFAULT
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:123:17-76
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:126:17-76
 	android:name
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:123:27-73
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:126:27-73
 category#android.intent.category.BROWSABLE
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:124:17-77
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:127:17-77
 	android:name
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:124:27-75
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:127:27-75
 data
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:125:17-126:54
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:128:17-129:54
 	android:host
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:126:21-52
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:129:21-52
 	android:scheme
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:125:23-45
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:128:23-45
 activity#com.google.androidbrowserhelper.trusted.FocusActivity
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:132:9-90
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:135:9-90
 	android:name
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:132:19-87
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:135:19-87
 activity#com.google.androidbrowserhelper.trusted.WebViewFallbackActivity
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:134:9-135:62
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:137:9-138:62
 	android:configChanges
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:135:13-59
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:138:13-59
 	android:name
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:134:19-97
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:137:19-97
 provider#androidx.core.content.FileProvider
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:137:9-145:20
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:140:9-148:20
 	android:grantUriPermissions
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:140:13-47
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:143:13-47
 	android:authorities
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:139:13-60
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:142:13-60
 	android:exported
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:141:13-37
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:144:13-37
 	android:name
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:138:13-62
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:141:13-62
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:142:13-144:53
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:145:13-147:53
 	android:resource
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:144:17-50
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:147:17-50
 	android:name
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:143:17-67
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:146:17-67
 service#uk.tobysmith.totp.DelegationService
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:147:9-162:19
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:150:9-165:19
 	android:enabled
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:149:13-55
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:152:13-55
 	android:exported
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:150:13-56
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:153:13-56
 	android:name
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:148:13-46
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:151:13-46
 meta-data#android.support.customtabs.trusted.SMALL_ICON
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:153:17-155:73
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:156:17-158:73
 	android:resource
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:155:21-70
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:158:21-70
 	android:name
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:154:21-81
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:157:21-81
 intent-filter#action:name:android.support.customtabs.trusted.TRUSTED_WEB_ACTIVITY_SERVICE+category:name:android.intent.category.DEFAULT
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:158:13-161:29
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:161:13-164:29
 action#android.support.customtabs.trusted.TRUSTED_WEB_ACTIVITY_SERVICE
-ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:159:17-105
+ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:162:17-105
 	android:name
-		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:159:25-103
+		ADDED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml:162:25-103
 uses-sdk
 INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\tobys\Repositories\totp-online\app\src\main\AndroidManifest.xml
