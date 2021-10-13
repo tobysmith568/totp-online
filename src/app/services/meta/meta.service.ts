@@ -8,7 +8,7 @@ import { BehaviorSubject } from "rxjs";
   providedIn: "root"
 })
 export class MetaService {
-  private defaultTitle = "TOTP Online";
+  private defaultTitle = "TOTP Manager";
   private titleSubject: BehaviorSubject<string> = new BehaviorSubject<string>(this.defaultTitle);
 
   constructor(
