@@ -9,6 +9,12 @@
   "start_url": "/?source=pwa",
   "icons": [
     {
+      "src": "assets/icons/maskable-icon-512-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
       "src": "assets/icons/windows10/SmallTile.scale-100.png",
       "sizes": "71x71",
       "type": "image/png"

@@ -13,7 +13,7 @@
   "enableNotifications": true,
   "startUrl": "/?source=pwa",
   "iconUrl": "http://localhost:8080/assets/icons/android/android-launchericon-512-512.png",
-  "maskableIconUrl": "http://localhost:8080/assets/icons/android/android-launchericon-512-512.png",
+  "maskableIconUrl": "http://localhost:8080/assets/icons/maskable-icon-512-512.png",
   "monochromeIconUrl": "http://localhost:8080/assets/icons/android/android-launchericon-48-48.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
@@ -21,7 +21,7 @@
     "alias": "totp"
   },
   "appVersionName": "1.0.1",
-  "appVersionCode": 4,
+  "appVersionCode": 5,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "http://localhost:8080/site.webmanifest",
