@@ -1,6 +1,6 @@
 {
-  "name": "TOTP Online",
-  "short_name": "TOTP Online",
+  "name": "TOTP Manager",
+  "short_name": "TOTP Manager",
   "theme_color": "#0070CD",
   "background_color": "#00a2ff",
   "display": "standalone",
