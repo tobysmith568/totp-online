@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production",
     "build:android": "bubblewrap build",
     "update:android": "bubblewrap update",
     "watch": "ng build --watch --configuration development",
@@ -62,5 +63,8 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "typescript": "~4.2.3"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.1.2"
   }
 }
