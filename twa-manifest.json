@@ -20,8 +20,8 @@
     "path": "./android.keystore",
     "alias": "totp"
   },
-  "appVersionName": "1.0.1",
-  "appVersionCode": 5,
+  "appVersionName": "1.0.2",
+  "appVersionCode": 6,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "http://localhost:8080/site.webmanifest",
@@ -35,5 +35,5 @@
   "orientation": "portrait",
   "fingerprints": [],
   "additionalTrustedOrigins": [],
-  "appVersion": "1.0.1"
+  "appVersion": "1.0.2"
 }
