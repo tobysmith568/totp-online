@@ -1,0 +1,6 @@
+dist
+app
+gradle
+.gradle
+android-assets
+win-assets

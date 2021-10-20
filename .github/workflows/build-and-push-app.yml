@@ -7,67 +7,66 @@ on:
 
 jobs:
   publish:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Setup Node
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14
-        registry-url: https://registry.npmjs.org/
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
 
-    - name: npm Install
-      working-directory: ./app
-      run: npm ci
+      - name: npm Install
+        working-directory: ./app
+        run: npm ci
 
-    - name: npm build
-      working-directory: ./app
-      run: npm run build:prod
+      - name: npm build
+        working-directory: ./app
+        run: npm run build:prod
 
-#     TODO
-#   - name: npm test
-#     working-directory: ./app
+      #     TODO
+      #   - name: npm test
+      #     working-directory: ./app
 
-#     TODO
-#   - name: Generate licence file
-#     working-directory: ./app
+      #     TODO
+      #   - name: Generate licence file
+      #     working-directory: ./app
 
-    - name: Set up JDK 11
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
-        distribution: 'adopt'
-        cache: gradle
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: "11"
+          distribution: "adopt"
+          cache: gradle
 
-    - name: Bubblewrap App
-      run: |
-        npm run pwa:serve &
-        BUBBLEWRAP_KEYSTORE_PASSWORD="${{ secrets.KEY_STORE_PASSWORD }}"
-        BUBBLEWRAP_KEY_PASSWORD="${{ secrets.KEY_PASSWORD }}"
-        npm run build:android
+      - name: Bubblewrap App
+        run: |
+          npm run pwa:serve &
+          BUBBLEWRAP_KEYSTORE_PASSWORD="${{ secrets.KEY_STORE_PASSWORD }}"
+          BUBBLEWRAP_KEY_PASSWORD="${{ secrets.KEY_PASSWORD }}"
+          npm run build:android
 
-    - name: Upload APK
-      uses: actions/upload-artifact@master
-      with:
-        name: release.apk
-        path: app-release-signed.apk
+      - name: Upload APK
+        uses: actions/upload-artifact@master
+        with:
+          name: release.apk
+          path: app-release-signed.apk
 
-    - name: Upload AAB
-      id: uploadArtifact
-      uses: actions/upload-artifact@v1
-      with:
+      - name: Upload AAB
+        id: uploadArtifact
+        uses: actions/upload-artifact@v1
+        with:
           name: release
           path: app-release-bundle.aab
 
-    - name: Publish to Play Store internal test track
-      uses: r0adkll/upload-google-play@v1
-      continue-on-error: true
-      with:
-        serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
-        packageName: uk.tobysmith.totp
-        releaseFiles: app-release-bundle.aab
-        track: internal
-        status: draft
+      - name: Publish to Play Store internal test track
+        uses: r0adkll/upload-google-play@v1
+        continue-on-error: true
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
+          packageName: uk.tobysmith.totp
+          releaseFiles: app-release-bundle.aab
+          track: internal
+          status: draft

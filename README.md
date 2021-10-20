@@ -12,20 +12,20 @@ While most of the TOTP apps that your users will be using only support SHA-1 has
 
 The supported hashing algorithms are:
 
- - SHA-1
- - SHA-224
- - SHA-256
- - SHA-384
- - SHA-512
+- SHA-1
+- SHA-224
+- SHA-256
+- SHA-384
+- SHA-512
 
 The supported time intervals (periods) are:
 
- - 15 seconds
- - 30 seconds
- - 1 minute
- - 2 minutes
- - 5 minutes
- - 10 minutes
+- 15 seconds
+- 30 seconds
+- 1 minute
+- 2 minutes
+- 5 minutes
+- 10 minutes
 
 [Totp-Online](https://totp-online.tobythe.dev) also supports code lengths between 6 and 10.
 
