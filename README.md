@@ -1,4 +1,6 @@
 # TotpOnline
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftobysmith568%2Ftotp-online.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftobysmith568%2Ftotp-online?ref=badge_shield)
+
 
 If you're writing software with 2-Factor Authentication (2FA/MFA) and you're rightfully avoiding using emails or SMS messages, then you're probably implementing one of two well-known algorithms where the user retrieves a code from an app of their phone. If the codes on the user's phone cycle on a regular interval then that's using an algorithm known as Time-based One-Time Password (TOTP).
 
@@ -43,3 +45,7 @@ The app can be found at https://totp-online.tobythe.dev but if you want to run i
 npm install
 npm run dev:ssr
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftobysmith568%2Ftotp-online.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftobysmith568%2Ftotp-online?ref=badge_large)
